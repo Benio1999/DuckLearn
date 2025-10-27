@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(90deg, #7B5FFF, #FF7B4E);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- HEADER ---------- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo h2 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.1;
+    color: #fffbfb;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ---------- BOTÕES DO MENU ---------- */
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+nav button {
+    border: none;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login {
+    background-color: #E2B8FF;
+    color: #fff;
+}
+
+.btn-signup {
+    background-color: #A774FF;
+    color: #fff;
+}
+
+nav button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/* ---------- CONTEÚDO PRINCIPAL ---------- */
+.hero {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 100px;
+    gap: 50px;
+}
+
+.text-content h1 {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.text-content span {
+    color: #fff;
+}
+
+.btn-saiba {
+    margin-top: 35px;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 35px;
+    background: linear-gradient(90deg, #FFD93D, #FF8A00);
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-saiba:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 200, 0, 0.7);
+}
+
+/* ---------- IMAGEM DO PATO ---------- */
+.img-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-content img {
+    width: 350px;       /* 🔹 tamanho ideal no desktop */
+    height: auto;
+    border-radius: 20px;
+    object-fit: contain;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* ---------- ANIMAÇÃO ---------- */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ---------- RESPONSIVIDADE ---------- */
+@media (max-width: 1024px) {
+    .hero {
+        padding: 40px 60px;
+    }
+    .img-content img {
+        width: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .text-content h1 {
+        font-size: 36px;
+    }
+
+    .img-content img {
+        width: 240px;   /* 🔹 ajusta no celular */
+        margin-top: 20px;
+    }
+}
