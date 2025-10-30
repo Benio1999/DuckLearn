@@ -28,9 +28,12 @@ const protect = (req, res, next) => {
             token = req.headers.authorization.split(' ')[1];
             jwt.verify(token, JWT_SECRET);
             next()
-        } catch(error) {
-            return res.status(401).json({mensagem: "Não autorizado, token inválido"})
+        } catch (error) {
+            return res.status(401).json({ mensagem: "Não autorizado, token inválido" })
         }
     }
-
 }
+
+const app = express();
+app.use(express.json())
+app.use(cors())
