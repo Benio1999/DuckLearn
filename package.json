@@ -4,7 +4,10 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+<<<<<<< Updated upstream
     "jsonwebtoken": "^9.0.2",
+=======
+>>>>>>> Stashed changes
     "jws": "^4.0.0",
     "mongodb": "^6.20.0",
     "mongoose": "^8.19.2"
