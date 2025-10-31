@@ -1,11 +1,13 @@
-const moongose = require('mongoose');
+const moongose = require('mongoose')
+const API_URL = 'http://localhost:3004/server.js';
+require('dotenv').config()
+
 
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-require('dotenv').config()
 
 const PORT = process.env.PORT || 3001;
 const mongoURI = process.env.MONGO_URI;
@@ -38,3 +40,4 @@ const protect = (req, res, next) => {
 const app = express();
 app.use(express.json())
 app.use(cors())
+
