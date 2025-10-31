@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3004;
 const mongoURI = process.env.MONGO_URI;
 const JWT_SECRET = process.env.JWT_SECRET;
 
