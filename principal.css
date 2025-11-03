@@ -7,8 +7,8 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body {
-    background: linear-gradient(90deg, #7B5FFF, #FF7B4E);
+main{
+    background: linear-gradient(90deg, #972fff, #ad5bff);
     color: white;
     min-height: 100vh;
     display: flex;
@@ -20,7 +20,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 60px;
+    padding: 10px 30px;
+    background-color: #f7f6f6;
+    height:70px;
 }
 
 .logo {
@@ -30,15 +32,15 @@ header {
 }
 
 .logo img {
-    width: 65px;
-    height: 65px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
-    object-fit: cover;
+    margin-top: 13px;
     
 } 
 .logo img:hover{
     
-    transform:scale(1.2);
+    transform:scale(1.1);
     transition: 0.3s;
 }
 
@@ -92,7 +94,7 @@ nav button:hover {
 
 .text-content h1 {
     font-size: 52px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.2;
     color: #fff;
 }
@@ -126,7 +128,7 @@ nav button:hover {
 }
 
 .img-content img {
-    width: 350px;       /* 🔹 tamanho ideal no desktop */
+    width: 375px;       /* 🔹 tamanho ideal no desktop */
     height: auto;
     border-radius: 20px;
     object-fit: contain;
@@ -136,10 +138,10 @@ nav button:hover {
 /* ---------- ANIMAÇÃO ---------- */
 @keyframes float {
     0%, 100% {
-        transform: translateY(0px);
+        transform: translateY(2px);
     }
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-5px);
     }
 }
 
@@ -175,6 +177,7 @@ nav button:hover {
     }
 }
 
-header{
-    background-color: #000215c2;
+.bem-vindo{
+
+    font-size: 30px;
 }
