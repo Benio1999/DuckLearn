@@ -2,9 +2,8 @@ const moongose = require('mongoose')
 require('dotenv').config()
 
 const API_URL = 'http://localhost:3004/server.js';
-require('dotenv').config()
-<<<<<<< HEAD
 
+require('dotenv').config()
 
 const express = require('express');
 const cors = require('cors');
@@ -22,7 +21,7 @@ mongoose.connect(mongoURI)
         console.error("Falha na Conexão ao MongoDB", error.message);
         process.exit(1);
     })
-=======
+
 const moongose = require('mongoose');
 const cors = require ('cors');
 const express = require ('express');
@@ -45,7 +44,7 @@ mongoose.connect(mongoURI)
     })
 
 //Função que gera o token de login
->>>>>>> 649e2b9cdf0292528dff6a90618a546c48d99ccc
+
 const generateToken = (id) => {
     return jwt.sign({ id }, JWT_SECRET, { expiresIn: '1d' })
 }
@@ -64,12 +63,11 @@ const protect = (req, res, next) => {
     }
 }
 
-<<<<<<< HEAD
-const app = express();
+
 app.use(express.json())
 app.use(cors())
 
-=======
+
 
 
 //Criando minha aplicação
@@ -114,4 +112,3 @@ app.post('/api/login-user', async (req, res) => {
         res.status(500).json({ mensagem: "Erro no login", erro: error.message })
     }
 })
->>>>>>> 649e2b9cdf0292528dff6a90618a546c48d99ccc
