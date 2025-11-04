@@ -1,0 +1,26 @@
+.btn-login {
+    background-color: #E2B8FF;
+    color: #fff;
+}
+
+.btn-signup {
+    background-color: #A774FF;
+    color: #fff;
+}
+
+.btn-saiba {
+    margin-top: 35px;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 35px;
+    background: linear-gradient(90deg, #FFD93D, #FF8A00);
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-saiba:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 200, 0, 0.7);
+}
