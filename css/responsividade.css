@@ -1,0 +1,30 @@
+@media (max-width: 1024px) {
+    .hero {
+        padding: 40px 60px;
+    }
+    .img-content img {
+        width: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .text-content h1 {
+        font-size: 36px;
+    }
+
+    .img-content img {
+        width: 240px;  
+        margin-top: 20px;
+    }
+}

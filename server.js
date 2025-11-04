@@ -4,7 +4,10 @@ require('dotenv').config();
 const cors = require ('cors');
 const express = require ('express');
 const jwt = require ('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
+
+const User = require ('User');
 
 const PORT = process.env.PORT || 3004;
 const mongoURI = process.env.MONGO_URI;
@@ -12,10 +15,6 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 
 //conexão do mongodb
-
-mongoose.connect(mongoURI)  
-    .then(() => console.log('Conectado ao Mongo DB'))
-
 
     mongoose.connect(mongoURI)  
     .then(() => console.log('Conectado ao Mongo DB'))

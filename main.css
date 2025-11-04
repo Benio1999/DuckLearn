@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+
+
+
+@import '../css/animation.css';
+@import '../css/btn.css';
+@import '../css/img.css';
+@import '../css/initialconfig.css';
+@import '../css/logo.css';
+@import '../css/nav.css';
+@import '../css/responsividade.css';
+@import '../css/text.css';
+
+
+main{
+    background: linear-gradient(90deg, #972fff, #ad5bff);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #f7f6f6;
+    height:70px;
+}
+
+.hero {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 100px;
+    gap: 50px;
+}
+
+
+.bem-vindo{
+
+    font-size: 30px;
+}

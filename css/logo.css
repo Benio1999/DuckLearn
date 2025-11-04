@@ -1,0 +1,28 @@
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    margin-top: 13px;
+    
+} 
+.logo img:hover{
+    
+    transform:scale(1.1);
+    transition: 0.3s;
+}
+
+.logo h2 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.1;
+    color: #fffbfb;
+    -webkit-text-fill-color: transparent;
+}
+
+

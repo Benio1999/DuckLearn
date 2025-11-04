@@ -1,0 +1,13 @@
+.img-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-content img {
+    width: 375px;       
+    height: auto;
+    border-radius: 20px;
+    object-fit: contain;
+    animation: float 3s ease-in-out infinite;
+}
