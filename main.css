@@ -13,8 +13,8 @@
 @import '../css/text.css';
 
 
-main{
-    background: linear-gradient(90deg, #ff9900, #ffc85b);
+main {
+    background: linear-gradient(90deg, #ffab5d, #faff6f);
     color: white;
     min-height: 100vh;
     display: flex;
@@ -27,7 +27,7 @@ header {
     align-items: center;
     padding: 10px 30px;
     background-color: #f7f6f6;
-    height:70px;
+    height: 70px;
 }
 
 .hero {
@@ -40,7 +40,6 @@ header {
 }
 
 
-.bem-vindo{
-
+.bem-vindo {
     font-size: 30px;
 }
