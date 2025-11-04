@@ -8,3 +8,31 @@
 .text-content span {
     color: #fff;
 }
+
+.texto-grande {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    color: #F9F9F9; 
+    font-family: 'Nunito Sans', 'Quicksand', sans-serif;
+    font-weight: 700; 
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    line-height: 1.0; 
+    padding: 0 10px; 
+}
+
+.sobre-us {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    color: #F9F9F9;
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 900;
+    font-size: 34px; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+}
