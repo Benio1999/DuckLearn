@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Corpo */
+body {
+    background-color: #fff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 26px;
+    /* tamanho base maior */
+}
+
+/* Cabeçalho */
+.hero {
+    width: 100%;
+    background: linear-gradient(90deg, #9333ea, #f97316);
+    color: white;
+    text-align: center;
+    padding: 120px 60px;
+    /* bem mais alto */
+    position: relative;
+    overflow: hidden;
+}
+
+.logo {
+    width: 120px;
+    position: absolute;
+    top: 40px;
+    left: 50px;
+}
+
+.hero-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 100px;
+}
+
+.text h2 {
+    font-size: 45px;
+    font-weight: 500;
+}
+
+.text h1 {
+    font-size: 80px;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+.text p {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background-color: #ffde59;
+    color: #333;
+    padding: 20px 50px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 28px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #ffe88a;
+}
+
+.illustration img {
+    width: 350px;
+}
+
+.hero-buttons {
+    position: absolute;
+    top: 50px;
+    right: 80px;
+}
+
+.hero-buttons button {
+    border: none;
+    padding: 15px 35px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 22px;
+    margin-left: 20px;
+}
+
+.btn-login {
+    background-color: white;
+    color: #7e22ce;
+}
+
+.btn-register {
+    background-color: #7e22ce;
+    color: white;
+}
+
+/* Seção Sobre */
+.sobre {
+    max-width: 1200px;
+    text-align: center;
+    margin: 120px 0;
+}
+
+.sobre h2 {
+    font-size: 48px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.sobre .box {
+    background-color: #e0c4ff;
+    border-radius: 20px;
+    padding: 60px;
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.15);
+    text-align: left;
+    line-height: 1.9;
+    font-size: 26px;
+}
+
+/* Seção Cards */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    margin-bottom: 100px;
+}
+
+.card {
+    width: 350px;
+    height: 350px;
+    background-color: #fbbf24;
+    border-radius: 25px;
+    box-shadow: 8px 8px 0px #f59e0b;
+}
+
+.card-img {
+    width: 350px;
+    height: auto;
+}
+
+/* Rodapé */
+footer {
+    width: 100%;
+    background-color: #c4b5fd;
+    text-align: center;
+    padding: 50px 0;
+    font-weight: 700;
+    font-size: 26px;
+}
