@@ -1,0 +1,18 @@
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+nav button {
+    border: none;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}

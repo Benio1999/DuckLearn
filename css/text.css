@@ -1,0 +1,10 @@
+.text-content h1 {
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.text-content span {
+    color: #fff;
+}

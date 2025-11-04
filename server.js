@@ -8,8 +8,10 @@ const cors = require ('cors');
 const express = require ('express');
 const jwt = require ('jsonwebtoken');
 
+
+
 const User = require ('User');
-const { default: mongoose } = require('mongoose');
+
 
 //conexão do mongodb
 
