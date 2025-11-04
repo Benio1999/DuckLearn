@@ -1,5 +1,4 @@
-const moongose = require('mongoose')
-require('dotenv').config()
+
 
 const API_URL = 'http://localhost:3004/server.js';
 
@@ -23,12 +22,19 @@ mongoose.connect(mongoURI)
     })
 
 const moongose = require('mongoose');
+=======
+const mongoose = require('mongoose');
+require('dotenv').config();
+
 const cors = require ('cors');
 const express = require ('express');
 const jwt = require ('jsonwebtoken');
 
-const User = require ('User');
-const { default: mongoose } = require('mongoose');
+
+const PORT = process.env.PORT || 3004;
+const mongoURI = process.env.MONGO_URI;
+const JWT_SECRET = process.env.JWT_SECRET;
+
 
 //conexão do mongodb
 
