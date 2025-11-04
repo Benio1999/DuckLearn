@@ -1,0 +1,14 @@
+.card-texto{
+    display: flex;
+    background-color: rgb(146, 65, 252);
+    width: 1000px;
+    height: 350px;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 10%;
+    border-radius: 30px;
+    flex-direction: column;
+
+}
+
