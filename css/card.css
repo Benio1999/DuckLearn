@@ -1,14 +1,45 @@
-.card-texto{
-    display: flex;
-    background-color: rgb(146, 65, 252);
-    width: 1000px;
-    height: 350px;
-    margin-top: 10px;
-    justify-content: center;
-    align-items: center;
-    padding: 10%;
-    border-radius: 30px;
-    flex-direction: column;
 
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
+.card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 280px;
+}
+
+.card h3 {
+    color: #63056b;
+    margin-bottom: 10px;
+}
+
+
+
+.review-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    width: 300px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.dados-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    width: 280px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dados-card h3 {
+    color: #63056b;
+    margin-bottom: 10px;
+}
