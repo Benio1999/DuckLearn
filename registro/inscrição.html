@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
     <link rel="stylesheet" href="inscrição.css">
 </head>
+
 <body>
 
     <div class="overlay"></div>
@@ -28,8 +30,23 @@
         <label>Confirme a Senha</label>
         <input type="password" placeholder="Confirme sua senha">
 
-        <button type="submit">Inscreva-se</button>
+        <button class="btn-modal" type="submit">Inscreva-se</button>
     </form>
 
+    <div class="modal">
+        <h2>Inscrito com Sucesso!!</h2>
+        <style>
+            .modal {
+                display: none;
+                justify-content: center;
+                align-items: center;
+                background: #f0f0f0;
+                color: rgb(32, 160, 4);
+
+            }
+        </style>
+    </div>
+    <script src="../js/main/script.js"></script>
 </body>
+
 </html>
