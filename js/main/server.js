@@ -7,8 +7,6 @@ const jwt = require ('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 
-const User = require ('User');
-
 const PORT = process.env.PORT || 3004;
 const mongoURI = process.env.MONGO_URI;
 const JWT_SECRET = process.env.JWT_SECRET;
