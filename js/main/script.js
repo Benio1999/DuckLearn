@@ -1,3 +1,4 @@
+const API_URL = 'http://localhost:3004/server.js';
 
 const inscrever = document.querySelector('.btn-signup');
 const login = document.querySelector('.btn-login');
