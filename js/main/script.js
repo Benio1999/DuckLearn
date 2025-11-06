@@ -7,15 +7,16 @@ const formLogin = document.querySelector('.form-container2');
 
 const inscrever_se = document.querySelector('.btn-modal');
 const modal = document.querySelector('.modal');
+const module = User('User.js')
 
 
 
 inscrever.addEventListener('click', function() {
-        window.location.href = '../../registro/inscrição.html'; 
+        window.location.href = '../registro/inscrição.html'; 
     });
 
     login.addEventListener('click', function() {
-        window.location.href = '../../login/login.html';
+        window.location.href = '../login/login.html';
     });
 
 inscrever_se.addEventListener(('click'), () =>{
