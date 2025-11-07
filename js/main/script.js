@@ -4,6 +4,7 @@ const API_URL = 'http://localhost:3004/server.js'; // URL que é a base do serve
 const inscrever = document.querySelector('.btn-signup');
 const login = document.querySelector('.btn-login');
 const inscrever_se = document.querySelector('.btn-modal');
+
 const modal = document.querySelector('.modal'); // Modal de Sucesso (após inscrição)
 
 // as coisas da pagina de inscrição
@@ -13,6 +14,7 @@ const formLogin = document.querySelector('#formLogin');
 // Elementos de feedback nas páginas de formersssss
 const feedbackInscricao = document.querySelector('#inscricao-feedback');
 const feedbackLogin = document.querySelector('#login-feedback');
+
 
 
 
