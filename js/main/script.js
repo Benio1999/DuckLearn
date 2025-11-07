@@ -7,7 +7,6 @@ const formLogin = document.querySelector('.form-container2');
 
 const inscrever_se = document.querySelector('.btn-modal');
 const modal = document.querySelector('.modal');
-const module = User('User.js')
 
 
 
