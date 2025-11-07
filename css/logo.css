@@ -1,7 +1,7 @@
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: px;
 }
 
 .logo img {
@@ -18,11 +18,11 @@
 }
 
 .logo h2 {
-    font-weight: 700;
+    font-weight: 120;
     font-size: 18px;
     line-height: 1.1;
-    color: #fffbfb;
-    -webkit-text-fill-color: transparent;
+    color: #f7f7f7;
+    
 }
 
 
