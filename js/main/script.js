@@ -1,93 +1,90 @@
-const API_URL = 'http://localhost:3004/server.js';
+const API_URL = 'http://localhost:3004'; // URL que é a base do server
 
+// Usados na página principal (index.html) para funfar direito tem q pegar as class ne :p
 const inscrever = document.querySelector('.btn-signup');
 const login = document.querySelector('.btn-login');
-const formInscricao = document.querySelector('.form-container');
-const formLogin = document.querySelector('.form-container2');
-
 const inscrever_se = document.querySelector('.btn-modal');
-const modal = document.querySelector('.modal');
-const module = User('User.js')
+const modal = document.querySelector('.modal'); // Modal de Sucesso (após inscrição)
+
+// as coisas da pagina de inscrição
+const formInscricao = document.querySelector('#formInscricao');
+const formLogin = document.querySelector('#formLogin');
+
+// Elementos de feedback nas páginas de formersssss
+const feedbackInscricao = document.querySelector('#inscricao-feedback');
+const feedbackLogin = document.querySelector('#login-feedback');
 
 
 
-inscrever.addEventListener('click', function() {
-        window.location.href = '../registro/inscrição.html'; 
-    });
+/**
+ * Exibe uma mensagem de feedback na tela (dentro do formulário).
+ * @param {HTMLElement} elemento O elemento DIV onde a mensagem será exibida.
+ * @param {string} mensagem O texto da mensagem.
+ * @param {string} tipo 'success' ou 'error' (para mudar a cor via estilo inline).
+ */
 
-    login.addEventListener('click', function() {
-        window.location.href = '../login/login.html';
-    });
-
-inscrever_se.addEventListener(('click'), () =>{
-    modal.style.display = 'flex';
-    
-});
-
-
-
+//essa coisa ati faz com que apareça um feedbackzin
+function exibirFeedback(elemento, mensagem, tipo) {
+    if (elemento) {
+        elemento.textContent = mensagem;
+        elemento.style.display = 'block';
+        if (tipo === 'success') {
+            elemento.style.backgroundColor = '#d4edda'; // Verde claro
+            elemento.style.color = '#155724'; // Verde escuro
+            elemento.style.border = '1px solid #c3e6cb';
+        } else if (tipo === 'error') {
+            elemento.style.backgroundColor = '#f8d7da'; // Vermelho claro
+            elemento.style.color = '#721c24'; // Vermelho escuro
+            elemento.style.border = '1px solid #f5c6cb';
+        }
+    }
+}
 
 //inscrição
+//Isso ati serve pra poder passar d uma page pra outra quando clica no botão
 
+if (inscrever) {
+    inscrever.addEventListener('click', function() {
+        window.location.href = '../registro/inscrição.html';
+    });
+}
 
-//essa coisa linda (escrota) aqui faz o controle da pagina
-if (window.location.pathname.includes('/registro/inscrição.html') && formInscricao) {
-    
-    
-    formInscricao.addEventListener('submit', async function(event) {
-        
-        event.preventDefault(); //esse aqui não deixa enviar o formulário padrão :0
-
-        // Capturando os pokémon (dados) do formulário
-        const emailInput = formInscricao.querySelector('.email').value;
-        const passwordInput = formInscricao.querySelector('.senha').value;
-        
-        try {
-            // faz a comunication com o serverzin
-            const response = await fetch(`${API_URL}/api/register-user`, { 
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: emailInput, password: passwordInput })
-            });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                alert(data.mensagem); 
-                formInscricao.style.display = 'none';
-                if (modal) {
-                    modal.style.display = 'flex'; // Exibe o modal
-                }
-//essa função aqui redireciona o site de inscrição para o login apos 3 segundinhos :)
-                setTimeout(() => {
-                    window.location.href = '../../login/login.html'; 
-                }, 3000); 
-
-            } else {
-            
-                alert('Erro ao inscrever: ' + data.mensagem);
-            }
-        } catch (error) {
-            alert('Erro de conexão com o servidor. Verifique se o servidor está rodando na porta 3004.');
-        }
+if (login) {
+    login.addEventListener('click', function() {
+        window.location.href = '../login/login.html';
     });
 }
 
 
 
+// -essa desgraça aqui serve pra cuidar da pagina pra q n aconteça aqueles erro chato
 
-//login
+if (window.location.pathname.includes('/registro/inscrição.html') && formInscricao) {
 
-if (window.location.pathname.includes('/login/login.html') && formLogin) {
-    
-    formLogin.addEventListener('submit', async function(event) {
-        event.preventDefault(); 
+    formInscricao.addEventListener('submit', async function(event) {
+        event.preventDefault();
 
-        const emailInput = formLogin.querySelector('input[type="email"]').value;
-        const passwordInput = formLogin.querySelector('input[type="password"]:nth-of-type(1)').value;
+        // USANDO IDS ROBUSTOS para capturar os campos de inputers
+        const emailInput = document.querySelector('#emailInscricao').value;
+        const passwordInput = document.querySelector('#senhaInscricao').value;
+        const confirmEmail = document.querySelector('#confirmaEmailInscricao').value;
+        const confirmPassword = document.querySelector('#confirmaSenhaInscricao').value;
+
+        // validação pra ver se deu certin
+        if (emailInput !== confirmEmail) {
+            exibirFeedback(feedbackInscricao, 'Os emails digitados não são iguais.', 'error');
+            return;
+        }
+        if (passwordInput !== confirmPassword) {
+            exibirFeedback(feedbackInscricao, 'As senhas digitadas não são iguais.', 'error');
+            return;
+        }
+        // Limpa o feedback anterior
+        feedbackInscricao.style.display = 'none';
 
         try {
-            const response = await fetch(`${API_URL}/api/login-user`, { 
+            // Requisição para o servidor (pede pro server pra ele posta as information :3 )
+            const response = await fetch(`${API_URL}/api/register-user`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: emailInput, password: passwordInput })
@@ -96,16 +93,74 @@ if (window.location.pathname.includes('/login/login.html') && formLogin) {
             const data = await response.json();
 
             if (response.ok) {
+                // Sucesso: Exibe a mensagem e mostra o modal faz funcionar grazadeus
+                exibirFeedback(feedbackInscricao, data.mensagem + ' Redirecionando para o Login...', 'success');
+                if (modal) {
+                    modal.style.display = 'flex';
+                }
 
-                alert(data.mensagem); 
-                localStorage.setItem('userToken', data.token);
-                window.location.href = '../../principal_page/principal.html'; 
-
+                // Redirecionamento, manda da page de inscrição pro login dps d 2 segundin
+                setTimeout(() => {
+                    window.location.href = '../../login/login.html';
+                }, 2000); 
             } else {
-                alert('Falha no Login: ' + data.mensagem);
+                // Erro do Servidor (ex: Email já existe)
+                exibirFeedback(feedbackInscricao, 'Erro ao inscrever: ' + data.mensagem, 'error');
             }
         } catch (error) {
-            alert('Erro de conexão com o servidor. Verifique se o servidor está rodando na porta 3004.');
+            // Erro de Conexão
+            exibirFeedback(feedbackInscricao, 'Erro de conexão com o servidor. Verifique se o servidor está rodando.', 'error');
+        }
+    });
+}
+
+
+// login
+
+if (window.location.pathname.includes('/login/login.html') && formLogin) {
+
+    formLogin.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+    
+        const emailInput = document.querySelector('#emailLogin').value;
+        const passwordInput = document.querySelector('#senhaLogin').value;
+        const confirmPassword = document.querySelector('#confirmaSenhaLogin').value;
+
+        
+        if (passwordInput !== confirmPassword) {
+            exibirFeedback(feedbackLogin, 'A senha e a confirmação de senha não são iguais.', 'error');
+            return;
+        }
+        
+        feedbackLogin.style.display = 'none';
+
+        try {
+
+            const response = await fetch(`${API_URL}/api/login-user`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: emailInput, password: passwordInput })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                // Sucesso: Armazena o token e redireciona imediatamente pra pagina principal
+                exibirFeedback(feedbackLogin, data.mensagem + ' Acessando a página principal...', 'success');
+                localStorage.setItem('userToken', data.token);
+                
+                // Redirecionamento quase imediato, pq ngm mmerece esperar pra prr pra isso
+                setTimeout(() => {
+                    window.location.href = '../../principal_page/principal.html'; 
+                }, 500); // 0.5 segundo
+            } else {
+                // Falha no Login (ex: Credenciais inválidas)
+                exibirFeedback(feedbackLogin, 'Falha no Login: ' + data.mensagem, 'error');
+            }
+        } catch (error) {
+            // Erro de Conexão
+            exibirFeedback(feedbackLogin, 'Erro de conexão com o servidor. Verifique se o servidor está rodando.', 'error');
         }
     });
 }

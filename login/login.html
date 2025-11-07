@@ -12,17 +12,19 @@
 
     <div class="overlay"></div>
 
-    <form class="form-container2">
+    <form class="form-container" id="formLogin">
         <h2>Login</h2>
+        
+        <div id="login-feedback" style="margin: 10px 0; padding: 10px; border-radius: 4px; display: none;"></div>
 
-        <label>Email</label>
-        <input type="email" placeholder="Digite seu e-mail">
+        <label for="emailLogin">Email</label>
+        <input type="email" id="emailLogin" placeholder="Digite seu e-mail">
 
-        <label>Senha</label>
-        <input type="password" placeholder="Digite sua senha">
+        <label for="senhaLogin">Senha</label>
+        <input type="password" id="senhaLogin" placeholder="Digite sua senha">
 
-        <label>Confirme a Senha</label>
-        <input type="password" placeholder="Confirme sua senha">
+        <label for="confirmaSenhaLogin">Confirme a Senha</label>
+        <input type="password" id="confirmaSenhaLogin" placeholder="Confirme sua senha">
 
         <button type="submit">Login</button>
     </form>
