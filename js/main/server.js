@@ -1,12 +1,10 @@
-
-const mongoose = require('mongoose');
 require('dotenv').config();
+const mongoose = require('mongoose');
+const User = require('./User');
 const cors = require ('cors');
 const express = require ('express');
 const jwt = require ('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-
-
 const PORT = process.env.PORT || 3004;
 const mongoURI = process.env.MONGO_URI;
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -55,7 +53,7 @@ app.post('/api/register-user', async (req, res) => {
     try {
         const userExists = await User.findOne({ email })
         if (userExists) {
-            return res.status(400).json({ mensagem: "Nome de usuário já existe" })
+            return res.status(400).json({ mensagem: "Email já cadastrado" })
         }
         const user = await User.create({ email, password })
         res.status(201).json({ mensagem: "Usuário criado com sucesso" })
