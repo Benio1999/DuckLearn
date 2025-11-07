@@ -29,6 +29,9 @@ header {
     padding: 10px 30px;
     background: linear-gradient(90deg, rgba(65, 1, 121, 0.884), rgba(89, 0, 61, 0.906));
     height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 3;
 }
 
 
