@@ -17,7 +17,6 @@ const feedbackLogin = document.querySelector('#login-feedback');
 
 
 
-
 /**
  * Exibe uma mensagem de feedback na tela (dentro do formulário).
  * @param {HTMLElement} elemento O elemento DIV onde a mensagem será exibida.
