@@ -70,13 +70,15 @@ app.use(cors())
 
 // Registro de usuário
 app.post('/api/register-user', async (req, res) => {
-    const { name, email, password } = req.body // Recebe o 'name'
+    // ✅ CORREÇÃO: Deve receber o 'name'
+    const { name, email, password } = req.body 
     try {
         const userExists = await User.findOne({ email })
         if (userExists) {
             return res.status(400).json({ mensagem: "Email já cadastrado" })
         }
-        const user = await User.create({ name, email, password }) // Salva o 'name'
+        // ✅ CORREÇÃO: Deve salvar o 'name'
+        const user = await User.create({ name, email, password }) 
         res.status(201).json({ mensagem: "Usuário criado com sucesso" })
     } catch (error) {
         res.status(500).json({ mensagem: "Erro no registro", erro: error.message })
@@ -88,7 +90,10 @@ app.post('/api/register-user', async (req, res) => {
 app.post('/api/login-user', async (req, res) => {
     const { email, password } = req.body
     try {
-        const user = await user.findOne({ email }).select('+password');
+
+        
+        const user = await User.findOne({ email }).select('+password'); 
+
 
         if (user && (await user.matchPassword(password))) {
             res.json({
