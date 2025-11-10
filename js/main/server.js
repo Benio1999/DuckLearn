@@ -39,7 +39,6 @@ const protect = (req, res, next) => {
 }
 
 
-
 //Criando minha aplicação
 const app = express()
 
@@ -49,13 +48,13 @@ app.use(cors())
 
 // Registro de usuário
 app.post('/api/register-user', async (req, res) => {
-    const { email, password } = req.body
+    const { name, email, password } = req.body // Recebe o 'name'
     try {
         const userExists = await User.findOne({ email })
         if (userExists) {
             return res.status(400).json({ mensagem: "Email já cadastrado" })
         }
-        const user = await User.create({ email, password })
+        const user = await User.create({ name, email, password }) // Salva o 'name'
         res.status(201).json({ mensagem: "Usuário criado com sucesso" })
     } catch (error) {
         res.status(500).json({ mensagem: "Erro no registro", erro: error.message })
@@ -76,9 +75,12 @@ app.post('/api/login-user', async (req, res) => {
                 mensagem: "Login Realizado com sucesso"
             })
         } else {
-            res.status(401).json({ mensagem: "Credenciais inválidas" })
+            res.status(401).json({ mensagem: "Email ou Senha Inválidos" })
         }
     } catch (error) {
         res.status(500).json({ mensagem: "Erro no login", erro: error.message })
     }
 })
+
+
+app.listen(PORT, () => console.log(`servidor rodando na porta ${PORT}`))
