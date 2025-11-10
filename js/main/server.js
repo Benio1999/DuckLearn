@@ -1,5 +1,4 @@
 
-
 const API_URL = 'http://localhost:3004/server.js';
 
 require('dotenv').config()
@@ -21,10 +20,9 @@ mongoose.connect(mongoURI)
         process.exit(1);
     })
 
-const moongose = require('mongoose');
-
-const mongoose = require('mongoose');
 require('dotenv').config();
+const mongoose = require('mongoose');
+const User = require('./User');
 
 const cors = require ('cors');
 const express = require ('express');
@@ -32,7 +30,6 @@ const jwt = require ('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 
-const User = require ('User');
 
 
 //conexão do mongodb
@@ -84,7 +81,7 @@ app.post('/api/register-user', async (req, res) => {
     try {
         const userExists = await User.findOne({ email })
         if (userExists) {
-            return res.status(400).json({ mensagem: "Nome de usuário já existe" })
+            return res.status(400).json({ mensagem: "Email já cadastrado" })
         }
         const user = await User.create({ email, password })
         res.status(201).json({ mensagem: "Usuário criado com sucesso" })
@@ -98,7 +95,7 @@ app.post('/api/register-user', async (req, res) => {
 app.post('/api/login-user', async (req, res) => {
     const { email, password } = req.body
     try {
-        const user = await User.findOne({ email }).select('+password');
+        const user = await user.findOne({ email }).select('+password');
 
         if (user && (await user.matchPassword(password))) {
             res.json({

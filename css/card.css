@@ -12,10 +12,23 @@
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     width: 280px;
+    transition: 0.2s ease-in-out;
+
 }
 
+.card:hover{
+    transform:scale(1.05);
+    transition: 0.2s ease-in-out ;
+    
+    
+    
+
+}
+
+
+
 .card h3 {
-    color: #63056b;
+    color: var(--roxo-card);
     margin-bottom: 10px;
 }
 
@@ -27,6 +40,12 @@
     border-radius: 20px;
     width: 300px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: 0.2s ease-in-out;
+}
+
+.review-card:hover{
+    transform:scale(1.05);
+    transition: 0.2s ease-in-out;
 }
 
 
@@ -40,6 +59,6 @@
 }
 
 .dados-card h3 {
-    color: #63056b;
+    color: var(--roxo-card);
     margin-bottom: 10px;
 }
