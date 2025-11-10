@@ -103,7 +103,5 @@ app.post('/api/login-user', async (req, res) => {
         res.status(500).json({ mensagem: "Erro no login", erro: error.message })
     }
 })
-})
-
 
 app.listen(PORT, () => console.log(`servidor rodando na porta ${PORT}`))
