@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário</title>
+    <title>Formulário de Login</title>
     <link rel="stylesheet" href="login.css">
 </head>
 
@@ -18,17 +18,14 @@
         <div id="login-feedback" style="margin: 10px 0; padding: 10px; border-radius: 4px; display: none;"></div>
 
         <label for="emailLogin">Email</label>
-        <input type="email" id="emailLogin" placeholder="Digite seu e-mail">
+        <input type="email" id="emailLogin" placeholder="Digite seu e-mail" autocomplete="off">
 
         <label for="senhaLogin">Senha</label>
-        <input type="password" id="senhaLogin" placeholder="Digite sua senha">
-
-        <label for="confirmaSenhaLogin">Confirme a Senha</label>
-        <input type="password" id="confirmaSenhaLogin" placeholder="Confirme sua senha">
+        <input type="password" id="senhaLogin" placeholder="Digite sua senha" autocomplete="new-password">
 
         <button type="submit">Login</button>
     </form>
-    <script src="../js/main/login/script_login.js"></script>
+    <script src="script_login.js"></script>
 </body>
 
 </html>
