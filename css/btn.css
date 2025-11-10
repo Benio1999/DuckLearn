@@ -3,8 +3,14 @@
     color: #fff;
 }
 
+.div-btn{
+    gap: 9px;
+    
+    display: flex;
+}
+
 .btn-signup {
-    background-color: #A774FF;
+    background-color: #a06afd;
     color: #fff;
 }
 
@@ -23,4 +29,10 @@
 .btn-saiba:hover {
     transform: scale(1.05);
     box-shadow: 0 0 10px rgba(255, 200, 0, 0.7);
+}
+
+
+html{
+    scroll-behavior: smooth; 
+     transition: 3s ease-in;
 }

@@ -17,7 +17,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background-color:;
+    
 }
 
 
@@ -39,13 +39,14 @@
 .como-funciona {
     padding: 80px 20px;
     text-align: center;
-    background-color: ;
+    
 }
 
 .como-funciona h2 {
-    color: #63056b;
+    color: #980aa5;
     margin-bottom: 40px;
 }
+
 
 
 
@@ -56,7 +57,7 @@
 
 .por-que-usar h2 {
     text-align: center;
-    color: #63056b;
+    color: var(--roxo-card);
     margin-bottom: 30px;
 }
 
@@ -72,6 +73,10 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 15px;
+    
+    
+    
+    
 }
 
 
@@ -80,6 +85,11 @@
 .avaliacoes {
     padding: 80px 20px;
     text-align: center;
+    
+}
+
+.avaliacoes h2{
+    margin-bottom: 12px;
 }
 
 .reviews {
@@ -88,6 +98,8 @@
     justify-content: center;
     gap: 25px;
 }
+
+
 
 
 .stars {
@@ -107,6 +119,9 @@ blockquote {
     text-align: center;
 }
 
+.graficos h2{
+    margin-bottom: 12px;
+}
 .dados {
     display: flex;
     flex-wrap: wrap;
