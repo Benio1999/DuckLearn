@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário</title>
+    <title>Formulário de Inscrição</title>
     <link rel="stylesheet" href="inscrição.css">
 </head>
  
@@ -12,43 +12,30 @@
 
     <div class="overlay"></div>
 
-    <form class="form-container" id="formInscricao">
+    <form class="form-container" id="formInscricao" autocomplete="off">
         <h2>Inscrição</h2>
         
-        <div id="inscricao-feedback" style="margin: 10px 0; padding: 10px; border-radius: 4px; display: none;">   </div>
+        <div id="inscricao-feedback" style="margin: 10px 0; padding: 10px; border-radius: 4px; display: none;">  </div>
 
         <label for="nomeUsuario">Nome de usuário</label>
-        <input type="text" id="nomeUsuario" placeholder="Digite seu nome">
+        <input type="text" id="nomeUsuario" placeholder="Digite seu nome" autocomplete="off">
 
         <label for="emailInscricao">Email</label>
-        <input type="email" id="emailInscricao" placeholder="Digite seu e-mail">
+        <input type="email" id="emailInscricao" placeholder="Digite seu e-mail" autocomplete="off">
 
         <label for="confirmaEmailInscricao">Confirme o Email</label>
-        <input type="email" id="confirmaEmailInscricao" placeholder="Confirme seu e-mail">
+        <input type="email" id="confirmaEmailInscricao" placeholder="Confirme seu e-mail" autocomplete="off">
 
         <label for="senhaInscricao">Senha</label>
-        <input type="password" id="senhaInscricao" placeholder="Digite sua senha">
+        <input type="password" id="senhaInscricao" placeholder="Digite sua senha" autocomplete="new-password">
 
         <label for="confirmaSenhaInscricao">Confirme a Senha</label>
-        <input type="password" id="confirmaSenhaInscricao" placeholder="Confirme sua senha">
+        <input type="password" id="confirmaSenhaInscricao" placeholder="Confirme sua senha" autocomplete="new-password">
 
         <button class="btn-modal" type="submit">Inscreva-se</button>
     </form>
 
-    <div class="modal">
-        <h2>Inscrito com Sucesso!!</h2>
-        <style>
-            .modal {
-                display: none;
-                justify-content: center;
-                align-items: center;
-                background: #f0f0f0;
-                color: rgb(32, 160, 4);
-
-            }
-        </style>
-    </div>
-    <script src="../js/main/inscrição/script_signup.js"></script>
+    <script src="script_signup.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,5 @@
+/* Seu CSS de Inscrição */
+
 body {
     margin: 0;
     padding: 0;
@@ -27,6 +29,16 @@ body {
     backdrop-filter: blur(6px); /* deixa moderno */
     color: white;
 }
+
+
+/* Garante que o feedback fique acima de tudo e use o espaço corretamente */
+#inscricao-feedback {
+    /* O JS já define a cor e display, mas este garante o espaço */
+    font-weight: bold;
+    text-align: center;
+    z-index: 1000; /* Garante que o feedback não fique atrás de nada */
+}
+
 
 label {
     font-weight: bold;

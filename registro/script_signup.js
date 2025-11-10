@@ -2,7 +2,7 @@ const API_URL = 'http://localhost:3004';
 
 
 const inscrever_se = document.querySelector('.btn-modal');
-const modal = document.querySelector('.modal'); // Modal de Sucesso (após inscrição)
+
 
 // as coisas da pagina de inscrição
 const formInscricao = document.querySelector('#formInscricao');
@@ -20,6 +20,7 @@ const feedbackInscricao = document.querySelector('#inscricao-feedback');
 function exibirFeedback(elemento, mensagem, tipo) {
     if (elemento) {
         elemento.textContent = mensagem;
+        // ESSENCIAL: Garante que o elemento seja visível
         elemento.style.display = 'block';
         if (tipo === 'success') {
             elemento.style.backgroundColor = '#d4edda'; // Verde claro
@@ -34,23 +35,29 @@ function exibirFeedback(elemento, mensagem, tipo) {
 }
 
 
-if (window.location.pathname.includes('/registro/inscrição.html') && formInscricao) {
 
-    formInscricao.addEventListener('submit', async function(event) {
+
+    formInscricao.addEventListener('submit', async function (event) {
         event.preventDefault();
 
+
+        if (feedbackInscricao) {
+            feedbackInscricao.style.display = 'none';
+        }
+
         // USANDO IDS ROBUSTOS para capturar os campos de inputers
-        // CORREÇÃO: Leitura do Nome de Usuário
-        const nomeUsuarioInput = document.querySelector('#nomeUsuario').value.trim(); 
+
+        const nomeUsuarioInput = document.querySelector('#nomeUsuario').value.trim();
         const emailInput = document.querySelector('#emailInscricao').value.trim();
         const passwordInput = document.querySelector('#senhaInscricao').value;
         const confirmEmail = document.querySelector('#confirmaEmailInscricao').value.trim();
         const confirmPassword = document.querySelector('#confirmaSenhaInscricao').value;
 
-        // Adicionando validação para campos vazios e para o nome
+        console.log(nomeUsuarioInput)
+
         if (!nomeUsuarioInput || !emailInput || !passwordInput || !confirmEmail || !confirmPassword) {
             exibirFeedback(feedbackInscricao, 'Por favor, preencha todos os campos.', 'error');
-            return;
+            return; // isso empede o envio do formulário vazio
         }
 
         // validação pra ver se deu certin
@@ -62,16 +69,14 @@ if (window.location.pathname.includes('/registro/inscrição.html') && formInscr
             exibirFeedback(feedbackInscricao, 'As senhas digitadas não são iguais.', 'error');
             return;
         }
-        
         // Limpa o feedback anterior
-        feedbackInscricao.style.display = 'none';
+        // Já feito no início, mas o retorno acima garante que só o feedback de erro apareça.
 
         try {
             // Requisição para o servidor (pede pro server pra ele posta as information :3 )
-            const response =  await fetch(`${API_URL}/api/register-user`, {
+            const response = await fetch(`${API_URL}/api/register-user`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                // CORREÇÃO: Incluído o campo 'name' no body
                 body: JSON.stringify({ name: nomeUsuarioInput, email: emailInput, password: passwordInput })
             });
 
@@ -80,21 +85,20 @@ if (window.location.pathname.includes('/registro/inscrição.html') && formInscr
             if (response.ok) {
                 // Sucesso: Exibe a mensagem e mostra o modal faz funcionar grazadeus
                 exibirFeedback(feedbackInscricao, data.mensagem + ' Redirecionando para o Login...', 'success');
-                if (modal) {
-                    modal.style.display = 'flex';
-                }
+
+                // Limpa o formulário APÓS mostrar o feedback de sucesso
+                formInscricao.reset();
 
                 // Redirecionamento, manda da page de inscrição pro login dps d 2 segundin
                 setTimeout(() => {
                     window.location.href = '../../login/login.html';
-                }, 2000); 
+                }, 2000);
             } else {
                 // Erro do Servidor (ex: Email já existe)
                 exibirFeedback(feedbackInscricao, 'Erro ao inscrever: ' + data.mensagem, 'error');
             }
         } catch (error) {
             // Erro de Conexão
-            exibirFeedback(feedbackInscricao, 'Erro de conexão com o servidor. Verifique se o servidor está rodando.', 'error');
+            exibirFeedback(feedbackInscricao, 'Erro de conexão.', 'error');
         }
     });
-}
