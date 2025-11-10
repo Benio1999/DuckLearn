@@ -68,8 +68,10 @@ app.post('/api/register-user', async (req, res) => {
 app.post('/api/login-user', async (req, res) => {
     const { email, password } = req.body
     try {
-        // ✅ CORREÇÃO CRÍTICA MANTIDA: Trocado 'user.findOne' para 'User.findOne'
+
+        
         const user = await User.findOne({ email }).select('+password'); 
+
 
         if (user && (await user.matchPassword(password))) {
             res.json({
