@@ -36,14 +36,14 @@ if (window.location.pathname.includes('/login/login.html') && formLogin) {
     formLogin.addEventListener('submit', async function(event) {
         event.preventDefault();
 
-    
-        const emailInput = document.querySelector('#emailLogin').value;
+        // CORREÇÃO: Removida a captura e validação da confirmação de senha
+        // que é desnecessária para o login.
+        const emailInput = document.querySelector('#emailLogin').value.trim();
         const passwordInput = document.querySelector('#senhaLogin').value;
-        const confirmPassword = document.querySelector('#confirmaSenhaLogin').value;
 
-        
-        if (passwordInput !== confirmPassword) {
-            exibirFeedback(feedbackLogin, 'A senha e a confirmação de senha não são iguais.', 'error');
+        // Adicionando validação simples de campos vazios
+        if (!emailInput || !passwordInput) {
+            exibirFeedback(feedbackLogin, 'Por favor, preencha todos os campos.', 'error');
             return;
         }
         
@@ -78,4 +78,3 @@ if (window.location.pathname.includes('/login/login.html') && formLogin) {
         }
     });
 }
-

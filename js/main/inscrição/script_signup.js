@@ -40,10 +40,18 @@ if (window.location.pathname.includes('/registro/inscrição.html') && formInscr
         event.preventDefault();
 
         // USANDO IDS ROBUSTOS para capturar os campos de inputers
-        const emailInput = document.querySelector('#emailInscricao').value;
+        // CORREÇÃO: Leitura do Nome de Usuário
+        const nomeUsuarioInput = document.querySelector('#nomeUsuario').value.trim(); 
+        const emailInput = document.querySelector('#emailInscricao').value.trim();
         const passwordInput = document.querySelector('#senhaInscricao').value;
-        const confirmEmail = document.querySelector('#confirmaEmailInscricao').value;
+        const confirmEmail = document.querySelector('#confirmaEmailInscricao').value.trim();
         const confirmPassword = document.querySelector('#confirmaSenhaInscricao').value;
+
+        // Adicionando validação para campos vazios e para o nome
+        if (!nomeUsuarioInput || !emailInput || !passwordInput || !confirmEmail || !confirmPassword) {
+            exibirFeedback(feedbackInscricao, 'Por favor, preencha todos os campos.', 'error');
+            return;
+        }
 
         // validação pra ver se deu certin
         if (emailInput !== confirmEmail) {
@@ -54,6 +62,7 @@ if (window.location.pathname.includes('/registro/inscrição.html') && formInscr
             exibirFeedback(feedbackInscricao, 'As senhas digitadas não são iguais.', 'error');
             return;
         }
+        
         // Limpa o feedback anterior
         feedbackInscricao.style.display = 'none';
 
@@ -62,7 +71,8 @@ if (window.location.pathname.includes('/registro/inscrição.html') && formInscr
             const response =  await fetch(`${API_URL}/api/register-user`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: emailInput, password: passwordInput })
+                // CORREÇÃO: Incluído o campo 'name' no body
+                body: JSON.stringify({ name: nomeUsuarioInput, email: emailInput, password: passwordInput })
             });
 
             const data = await response.json();
