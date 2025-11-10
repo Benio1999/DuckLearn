@@ -2,7 +2,6 @@
 
 
 
-
 @import '../css/animation.css';
 @import '../css/btn.css';
 @import '../css/img.css';
@@ -34,15 +33,7 @@ header {
     z-index: 3;
 }
 
-
-
-
 .bem-vindo {
     font-size: 30px;
     margin-bottom: -20px;
-
 }
-
-
-
-
