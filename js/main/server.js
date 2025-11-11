@@ -1,5 +1,5 @@
 
-const API_URL = 'http://localhost:3004/server.js';
+const API_URL = 'http://localhost:3004';
 
 require('dotenv').config()
 
@@ -20,16 +20,12 @@ mongoose.connect(mongoURI)
         process.exit(1);
     })
 
-require('dotenv').config();
-require('dotenv').config()
 
-const mongoose = require('mongoose');
+
 const User = require('./User');
 
-const cors = require ('cors');
-const express = require ('express');
-const jwt = require ('jsonwebtoken');
-const bcrypt = require('bcryptjs');
+
+
 
 
 
