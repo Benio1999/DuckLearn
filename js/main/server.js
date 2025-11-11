@@ -22,6 +22,7 @@ mongoose.connect(mongoURI)
 
 require('dotenv').config();
 require('dotenv').config()
+
 const mongoose = require('mongoose');
 const User = require('./User');
 
@@ -29,6 +30,7 @@ const cors = require ('cors');
 const express = require ('express');
 const jwt = require ('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+
 
 
 //conexão do mongodb
