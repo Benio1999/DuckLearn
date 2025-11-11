@@ -1,3 +1,305 @@
-   body{
-    background-color: rgb(255, 221, 159);
-   }
+@ -0,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #f5f6fa;
+    color: #333;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ======== LAYOUT ======== */
+.layout {
+    display: flex;
+    width: 100%;
+}
+
+.content {
+    flex: 1;
+    padding: 2rem;
+    margin-left: 260px;
+    transition: margin-left 0.3s ease;
+}
+
+/* ======== SIDEBAR ======== */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 260px;
+    height: 100vh;
+    background: rgba(30, 30, 30, 0.95);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.sidebar .image-wrapper img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.sidebar-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.sidebar-header {
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pro-sidebar-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+.pro-sidebar-logo div {
+    background: #ff9800;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 1.2rem;
+}
+
+/* ======== MENU ======== */
+.menu {
+    list-style: none;
+    padding: 1rem;
+}
+
+.menu-header {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-bottom: 0.5rem;
+}
+
+.menu-item {
+    margin: 0.5rem 0;
+}
+
+.menu-item a {
+    display: flex;
+    align-items: center;
+    color: #ddd;
+    text-decoration: none;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.menu-item a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.menu-icon {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+/* ======== SIDEBAR FOOTER ======== */
+.sidebar-footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.8rem;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* ======== TOGGLE ======== */
+.sidebar-collapser {
+    position: absolute;
+    top: 15px;
+    right: -15px;
+    background: #ff9800;
+    color: #fff;
+    border-radius: 70%;
+    padding: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 1100;
+}
+/* Remove as bolinhas e espaçamentos da lista da sidebar */
+.sidebar .menu ul {
+    list-style: none;   /* remove os marcadores */
+    padding-left: 0;    /* remove o recuo padrão */
+    margin: 0;
+}
+
+/* Garante que cada item ocupe o espaço correto */
+.sidebar .menu li {
+    list-style-type: none;
+}
+
+
+.sidebar-collapser:hover {
+    transform: scale(1.1);
+}
+
+.sidebar.collapsed {
+    width: 80px;
+}
+
+.sidebar.collapsed .menu-title,
+.sidebar.collapsed h5 {
+    display: none;
+}
+
+.sidebar.collapsed .menu-icon {
+    margin: 0;
+}
+
+.sidebar.collapsed~.content {
+    margin-left: 80px;
+}
+
+/* Esconde o texto e centraliza os ícones */
+.sidebar.collapsed .menu-title,
+.sidebar.collapsed .menu-header span,
+.sidebar.collapsed .pro-sidebar-logo h5 {
+    display: none;
+}
+
+/* Centraliza os ícones no modo colapsado */
+.sidebar.collapsed .menu-item a {
+    justify-content: center;
+}
+
+.sidebar.collapsed .menu-icon {
+    margin-right: 0;
+}
+
+.sidebar.collapsed .sidebar-collapser i {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+/* ======== HERO SECTION ======== */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9800, #ffb84d);
+    border-radius: 16px;
+    padding: 3rem;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.hero .text-content h2 {
+    font-size: 2rem;
+}
+
+.hero .text-content h1 {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.hero p {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+.hero img {
+    width: 200px;
+    height: auto;
+}
+
+/* ======== FEATURES SECTION ======== */
+.features {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1;
+    min-width: 240px;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card .icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.card.destaque {
+    background: linear-gradient(135deg, #ff9800, #ffb84d);
+    color: #fff;
+    position: relative;
+}
+
+.card.destaque .btn {
+    display: inline-block;
+    background: #fff;
+    color: #ff9800;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+.card.destaque .btn:hover {
+    background: #ff9800;
+    color: #fff;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero img {
+        margin-top: 2rem;
+    }
+
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+
+    .sidebar {
+        position: fixed;
+        width: 220px;
+        left: -220px;
+        transition: left 0.3s;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+}
