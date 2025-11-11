@@ -21,6 +21,7 @@ mongoose.connect(mongoURI)
     })
 
 require('dotenv').config();
+require('dotenv').config()
 const mongoose = require('mongoose');
 const User = require('./User');
 
