@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estudo Interativo</title>
+
+    <!-- Remix Icons -->
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="layout has-sidebar fixed-sidebar fixed-header">
+        <!-- SIDEBAR -->
+        <aside id="sidebar" class="sidebar break-point-sm has-bg-image">
+            <!-- Botão de minimizar -->
+            <a id="btn-collapse" class="sidebar-collapser" href="#">
+                <i class="ri-arrow-left-s-line"></i>
+            </a>
+
+            ```
+            <div class="image-wrapper">
+                <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=400&q=80"
+                    alt="sidebar background" />
+            </div>
+
+            <div class="sidebar-layout">
+                <div class="sidebar-header">
+                    <div class="pro-sidebar-logo">
+                        <div>M</div>
+                        <h5>Estudo</h5>
+                    </div>
+                </div>
+
+                <div class="sidebar-content">
+                    <nav class="menu open-current-submenu">
+                        <ul>
+                            <li class="menu-header"><span> MENU </span></li>
+                            <li class="menu-item sub-menu">
+                                <a href=""><i class="ri-home-4-line menu-icon"></i><span
+                                        class="menu-title">Início</span></a>
+                            </li>
+                            <li class="menu-item sub-menu">
+                                <a href=""><i class="ri-book-2-fill menu-icon"></i><span
+                                        class="menu-title">Cursos</span></a>
+                            </li>
+                            <li class="menu-item sub-menu">
+                                <a href=""><i class="ri-group-fill menu-icon"></i><span
+                                        class="menu-title">Comunidade</span></a>
+                            </li>
+                            <li class="menu-item sub-menu">
+                                <a href=""><i class="ri-pie-chart-2-fill menu-icon"></i><span
+                                        class="menu-title">Estatísticas</span></a>
+                            </li>
+                            <li class="menu-item sub-menu">
+                                <a href=""><i class="ri-settings-4-fill menu-icon"></i><span
+                                        class="menu-title">Configurações</span></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="sidebar-footer">
+                    <small>© 2025 </small>
+                </div>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="content">
+            <section class="hero">
+                <div class="text-content">
+                    <h2>Aprender nunca foi tão</h2>
+                    <h1>fácil</h1>
+                    <p>Estude do seu jeito, no seu ritmo.</p>
+                </div>
+                <div class="illustration">
+                    <img src="https://cdn-icons-png.flaticon.com/512/9063/9063858.png" alt="Estudo">
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="card">
+                    <div class="icon">⚡</div>
+                    <h3>Aprenda rápido</h3>
+                    <p>Lições curtas e objetivas</p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">🔗</div>
+                    <h3>Crie conexões</h3>
+                    <p>Fóruns e grupos de estudo</p>
+                </div>
+
+                <div class="card destaque">
+                    <h3>Desenvolva habilidades</h3>
+                    <p>Conteúdo prático e interativo</p>
+                    <a href="#" class="btn">Comece agora</a>
+                </div>
+            </section>
+        </main>
+        ```
+
+    </div>
+
+    <!-- SCRIPT -->
+
+    <script>
+    const sidebar = document.getElementById('sidebar');
+    const btnCollapse = document.getElementById('btn-collapse');
+
+    btnCollapse.addEventListener('click', e => {
+    e.preventDefault();
+    sidebar.classList.toggle('collapsed');
+});
+
+    </script>
+
+</body>
+
+</html>
