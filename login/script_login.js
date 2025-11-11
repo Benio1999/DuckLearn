@@ -3,7 +3,6 @@ const API_URL = 'http://localhost:3004';
 const formLogin = document.querySelector('#formLogin');
 
 // Elementos de feedback nas páginas de formersssss
-
 const feedbackLogin = document.querySelector('#login-feedback');
 
 
@@ -18,6 +17,7 @@ const feedbackLogin = document.querySelector('#login-feedback');
 function exibirFeedback(elemento, mensagem, tipo) {
     if (elemento) {
         elemento.textContent = mensagem;
+        // ESSENCIAL: Garante que o elemento seja visível
         elemento.style.display = 'block';
         if (tipo === 'success') {
             elemento.style.backgroundColor = '#d4edda'; // Verde claro
@@ -31,13 +31,15 @@ function exibirFeedback(elemento, mensagem, tipo) {
     }
 }
 
-if (window.location.pathname.includes('/login/login.html') && formLogin) {
 
-    formLogin.addEventListener('submit', async function(event) {
+    formLogin.addEventListener('submit', async function (event) {
         event.preventDefault();
 
-        // CORREÇÃO: Removida a captura e validação da confirmação de senha
-        // que é desnecessária para o login.
+
+        if (feedbackLogin) {
+            feedbackLogin.style.display = 'none';
+        }
+
         const emailInput = document.querySelector('#emailLogin').value.trim();
         const passwordInput = document.querySelector('#senhaLogin').value;
 
@@ -46,8 +48,9 @@ if (window.location.pathname.includes('/login/login.html') && formLogin) {
             exibirFeedback(feedbackLogin, 'Por favor, preencha todos os campos.', 'error');
             return;
         }
-        
-        feedbackLogin.style.display = 'none';
+
+        // Se passar nas validações, remove o feedback anterior e prossegue
+        // Já feito acima, mas mantendo a robustez
 
         try {
 
@@ -63,10 +66,13 @@ if (window.location.pathname.includes('/login/login.html') && formLogin) {
                 // Sucesso: Armazena o token e redireciona imediatamente pra pagina principal
                 exibirFeedback(feedbackLogin, data.mensagem + ' Acessando a página principal...', 'success');
                 localStorage.setItem('userToken', data.token);
-                
-                // Redirecionamento quase imediato, pq ngm mmerece esperar pra prr pra isso
+
+                //limpa o formulário após o sucesso
+                formLogin.reset();
+
+                // Redirecionamento quase imediato, pq ngm merece esperar pra prr pra isso
                 setTimeout(() => {
-                    window.location.href = '../../principal_page/principal.html'; 
+                    window.location.href = '../../principal_page/principal.html';
                 }, 500); // 0.5 segundo
             } else {
                 // Falha no Login (ex: Credenciais inválidas)
@@ -74,7 +80,6 @@ if (window.location.pathname.includes('/login/login.html') && formLogin) {
             }
         } catch (error) {
             // Erro de Conexão
-            exibirFeedback(feedbackLogin, 'Erro de conexão com o servidor. Verifique se o servidor está rodando.', 'error');
+            exibirFeedback(feedbackLogin, 'Erro de conexão.', 'error');
         }
     });
-}
