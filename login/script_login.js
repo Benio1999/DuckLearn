@@ -63,9 +63,10 @@ function exibirFeedback(elemento, mensagem, tipo) {
             const data = await response.json();
 
             if (response.ok) {
-                // Sucesso: Armazena o token e redireciona imediatamente pra pagina principal
+                // Sucesso: Armazena o token E o nome do usuário no localStorage
                 exibirFeedback(feedbackLogin, data.mensagem + ' Acessando a página principal...', 'success');
                 localStorage.setItem('userToken', data.token);
+                localStorage.setItem('userName', data.name); // ✅ Armazenar o nome
 
                 //limpa o formulário após o sucesso
                 formLogin.reset();
