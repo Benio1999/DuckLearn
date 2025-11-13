@@ -84,6 +84,28 @@ app.post('/api/register-user', async (req, res) => {
     }
 })
 
+// GET para pegar todos os IDs dos usuários
+app.get('/api/users', async (req, res) => {
+    try {
+        const users = await User.find().select('_id name email');
+        res.json(users);
+    } catch (error) {
+        res.status(500).json({ mensagem: "Erro ao buscar usuários", erro: error.message });
+    }
+});
+
+// GET para pegar um usuário específico pelo ID
+app.get('/api/users/:id', async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id).select('_id name email');
+        if (!user) {
+            return res.status(404).json({ mensagem: "Usuário não encontrado" });
+        }
+        res.json(user);
+    } catch (error) {
+        res.status(500).json({ mensagem: "Erro ao buscar usuário", erro: error.message });
+    }
+});
 
 //LOGIN DE USUÁRIO
 app.post('/api/login-user', async (req, res) => {
@@ -96,6 +118,7 @@ app.post('/api/login-user', async (req, res) => {
 
         if (user && (await user.matchPassword(password))) {
             res.json({
+                name: user.name,
                 email: user.email,
                 token: generateToken(user._id),
                 mensagem: "Login Realizado com sucesso"
