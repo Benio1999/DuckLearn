@@ -11,6 +11,7 @@
 @import '../css/responsividade.css';
 @import '../css/text.css';
 @import '../css/card.css';
+@import '../css/footer.css';
 
 
 main {
@@ -37,3 +38,4 @@ header {
     font-size: 30px;
     margin-bottom: -20px;
 }
+
