@@ -1,6 +1,8 @@
 nav {
-    display: flex;
-    gap: 15px;
+    display: fixed ;
+    gap: 10px;
+    z-index: 100;
+    
     
 }
 
