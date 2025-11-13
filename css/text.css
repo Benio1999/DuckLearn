@@ -128,3 +128,87 @@ blockquote {
     justify-content: center;
     gap: 25px;
 }
+
+/* Responsividade para Tablet */
+@media (max-width: 768px) {
+    .text-content h1 {
+        font-size: 36px;
+    }
+
+    .main-text {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+        gap: 20px;
+    }
+
+    .bem-vindo {
+        font-size: 24px;
+    }
+
+    .img-content img {
+        width: 240px;
+        margin-top: 20px;
+    }
+
+    .como-funciona,
+    .por-que-usar,
+    .avaliacoes,
+    .graficos {
+        padding: 50px 15px;
+    }
+
+    .como-funciona h2,
+    .por-que-usar h2,
+    .avaliacoes h2,
+    .graficos h2 {
+        font-size: 28px;
+    }
+}
+
+/* Responsividade para Mobile */
+@media (max-width: 480px) {
+    .text-content h1 {
+        font-size: 28px;
+    }
+
+    .bem-vindo {
+        font-size: 18px;
+    }
+
+    .main-text {
+        padding: 30px 15px;
+        gap: 15px;
+    }
+
+    .img-content img {
+        width: 180px;
+        margin-top: 15px;
+    }
+
+    .como-funciona,
+    .por-que-usar,
+    .avaliacoes,
+    .graficos {
+        padding: 40px 15px;
+    }
+
+    .como-funciona h2,
+    .por-que-usar h2,
+    .avaliacoes h2,
+    .graficos h2 {
+        font-size: 22px;
+    }
+
+    .por-que-usar li {
+        justify-content: flex-start;
+    }
+
+    blockquote {
+        font-size: 14px;
+    }
+
+    cite {
+        font-size: 12px;
+    }
+}

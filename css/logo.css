@@ -1,7 +1,7 @@
 .logo {
     display: flex;
     align-items: center;
-    gap: px;
+    gap: 10px;
 }
 
 .logo img {
@@ -9,10 +9,9 @@
     height: 75px;
     border-radius: 50%;
     margin-top: 13px;
-    
+    object-fit: cover;
 } 
 .logo img:hover{
-    
     transform:scale(1.1);
     transition: 0.3s;
 }
@@ -22,7 +21,39 @@
     font-size: 18px;
     line-height: 1.1;
     color: #f7f7f7;
-    
+}
+
+/* Responsividade do logo */
+@media (max-width: 768px) {
+    .logo {
+        gap: 8px;
+    }
+
+    .logo img {
+        width: 50px;
+        height: 50px;
+        margin-top: 5px;
+    }
+
+    .logo h2 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        gap: 6px;
+    }
+
+    .logo img {
+        width: 40px;
+        height: 40px;
+        margin-top: 0;
+    }
+
+    .logo h2 {
+        font-size: 14px;
+    }
 }
 
 
