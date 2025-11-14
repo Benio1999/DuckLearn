@@ -4,7 +4,11 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+<<<<<<< Updated upstream
     background-image: url('assets/imagem-login-copy.png'); /* coloque sua imagem */
+=======
+    background-image: url('../registro/assets/imagem-login copy.png'); /* coloque sua imagem */
+>>>>>>> Stashed changes
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -18,19 +22,18 @@ body {
     height: 100%;
 
     background: rgba(0,0,0,0.45);
-
-
 }
 
 .form-container {
     position: relative;
     max-width: 450px;
-    padding: 25px;
+    padding: 15px; 
+    padding-right: 36px;
     margin: 50px auto;
     border-radius: 20px;
     background: rgba(0,0,0,0.25); /* Transparente escuro */
     backdrop-filter: blur(6px); /* deixa moderno */
-    color: white;
+    color: white;  
 }
 
 /* Garante que o feedback fique acima de tudo e use o espaço corretamente */

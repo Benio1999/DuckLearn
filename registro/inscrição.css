@@ -5,14 +5,23 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     background-image: url('assets/imagem-login.png'); /* coloque sua imagem */
+<<<<<<< Updated upstream
     background-size: cover;
+=======
+    background-size: cover; 
+>>>>>>> Stashed changes
     background-position: center;
     background-repeat: no-repeat;
     
     height: 100vh;
     display: flex;
+<<<<<<< Updated upstream
     justify-content: center;
     align-items: center;
+=======
+    align-items: center;
+    justify-content: center;
+>>>>>>> Stashed changes
 } 
 
 .overlay {
@@ -26,10 +35,18 @@ body {
 
 .form-container {
     position: relative;
+<<<<<<< Updated upstream
     max-width: 750px;
     width: 40%;
     padding: 14px;
     padding-right: 34px;
+=======
+    height: 540px;
+    width: 70%;
+    max-width: 500px;
+    padding: 12px;
+    padding-right: 36px;
+>>>>>>> Stashed changes
     margin: 50px auto;
     border-radius: 20px;
     background: rgba(0,0,0,0.25); /* Transparente escuro */
@@ -86,3 +103,4 @@ button {
 button:hover {
     transform: scale(1.05);
 }
+
