@@ -237,6 +237,22 @@ body {
     max-width: 100%;
 }
 
+/* ======== USUARIO HEADER ======== */
+.usuario-header {
+    background: linear-gradient(135deg, #ff9800, #ffb84d);
+    color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.2);
+}
+
+.usuario-header h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
 /* ======== FEATURES SECTION ======== */
 .features {
     display: flex;
@@ -386,6 +402,15 @@ body {
         width: 140px;
     }
 
+    .usuario-header {
+        padding: 1rem 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .usuario-header h3 {
+        font-size: 1.1rem;
+    }
+
     .features {
         flex-direction: column;
         align-items: stretch;
@@ -493,6 +518,16 @@ body {
         font-size: 0.9rem;
     }
 
+    .usuario-header {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 10px;
+    }
+
+    .usuario-header h3 {
+        font-size: 1rem;
+    }
+
     /* Sidebar mobile */
     .sidebar {
         position: fixed;
@@ -570,6 +605,14 @@ body {
 
     .hero img {
         width: 80px;
+    }
+
+    .usuario-header {
+        padding: 0.8rem;
+    }
+
+    .usuario-header h3 {
+        font-size: 0.9rem;
     }
 
     .card {
