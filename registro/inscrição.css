@@ -6,7 +6,11 @@ body {
     font-family: Arial, sans-serif;
     background-image: url('assets/imagem-login.png'); /* coloque sua imagem */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     background-size: cover;
+=======
+    background-size: cover; 
+>>>>>>> Stashed changes
 =======
     background-size: cover; 
 >>>>>>> Stashed changes
@@ -16,8 +20,13 @@ body {
     height: 100vh;
     display: flex;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     justify-content: center;
     align-items: center;
+=======
+    align-items: center;
+    justify-content: center;
+>>>>>>> Stashed changes
 =======
     align-items: center;
     justify-content: center;
@@ -36,16 +45,22 @@ body {
 .form-container {
     position: relative;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     max-width: 750px;
     width: 40%;
     padding: 14px;
     padding-right: 34px;
 =======
+=======
+>>>>>>> Stashed changes
     height: 540px;
     width: 70%;
     max-width: 500px;
     padding: 12px;
     padding-right: 36px;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     margin: 50px auto;
     border-radius: 20px;
