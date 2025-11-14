@@ -69,14 +69,14 @@ app.use(cors())
 
 // Registro de usuário
 app.post('/api/register-user', async (req, res) => {
-    // ✅ CORREÇÃO: Deve receber o 'name'
+
     const { name, email, password } = req.body 
     try {
         const userExists = await User.findOne({ email })
         if (userExists) {
             return res.status(400).json({ mensagem: "Email já cadastrado" })
         }
-        // ✅ CORREÇÃO: Deve salvar o 'name'
+
         const user = await User.create({ name, email, password }) 
         res.status(201).json({ mensagem: "Usuário criado com sucesso" })
     } catch (error) {
