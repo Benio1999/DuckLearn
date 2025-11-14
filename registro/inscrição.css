@@ -4,10 +4,15 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url('assets/teacher-5635919_1280.png'); /* coloque sua imagem */
+    background-image: url('assets/imagem-login.png'); /* coloque sua imagem */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 } 
 
 .overlay {
@@ -21,8 +26,10 @@ body {
 
 .form-container {
     position: relative;
-    max-width: 450px;
-    padding: 25px;
+    max-width: 750px;
+    width: 40%;
+    padding: 14px;
+    padding-right: 34px;
     margin: 50px auto;
     border-radius: 20px;
     background: rgba(0,0,0,0.25); /* Transparente escuro */
