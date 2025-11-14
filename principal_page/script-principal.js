@@ -1,28 +1,36 @@
 const API_URL = 'http://localhost:3004';
 const sidebar = document.getElementById('sidebar');
 const btnCollapse = document.getElementById('btn-collapse');
-const username = document.querySelector('content'); // ou '.titulo'
+const username = document.querySelector('.content'); // ou '.titulo'
+const usuarioDiv = document.querySelector('.usuario'); // Novo: pegar a div do usuário
 
 // Abre e fecha o menu lateral
+if (btnCollapse) {
+    btnCollapse.addEventListener('click', (e) => {
+        e.preventDefault();
+        sidebar.classList.toggle('collapsed');
+    });
+}
 
-// Função para buscar o usuário
-async function carregarUsuario() {
-    try {
-        const resposta = await fetch(`${API_URL}/user/1`); // muda o ID conforme o usuário logado
-        const user = await resposta.json();
-
+// Função para exibir o nome do usuário logado
+function exibirNomeUsuario() {
+    // Pegar o nome armazenado no localStorage após o login
+    const userName = localStorage.getItem('userName');
+    
+    // Se existe a div com classe 'usuario', atualizar o texto
+    if (usuarioDiv && userName) {
+        usuarioDiv.textContent = `Bem vindo ${userName}`;
+    } else if (usuarioDiv) {
+        usuarioDiv.textContent = 'Bem vindo Usuário';
+    }
+    
+    // Também atualizar o .content se existir
+    if (username && userName) {
         const h4 = document.createElement('h4');
-        h4.textContent = `Bem-vindo mais uma vez, ${user.name} O que iremos aprender hoje?`;
+        h4.textContent = `Bem-vindo, ${userName}! O que iremos aprender hoje?`;
         username.appendChild(h4);
-
-    } catch (erro) {
-        console.error('Erro ao carregar usuário:', erro);
     }
 }
 
-carregarUsuario();
-
-btnCollapse.addEventListener('click', e => {
-    e.preventDefault();
-    sidebar.classList.toggle('collapsed');
-});
+// Chamar a função quando a página carregar
+document.addEventListener('DOMContentLoaded', exibirNomeUsuario);

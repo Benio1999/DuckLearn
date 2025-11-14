@@ -69,14 +69,14 @@ app.use(cors())
 
 // Registro de usuário
 app.post('/api/register-user', async (req, res) => {
-    // ✅ CORREÇÃO: Deve receber o 'name'
+
     const { name, email, password } = req.body 
     try {
         const userExists = await User.findOne({ email })
         if (userExists) {
             return res.status(400).json({ mensagem: "Email já cadastrado" })
         }
-        // ✅ CORREÇÃO: Deve salvar o 'name'
+
         const user = await User.create({ name, email, password }) 
         res.status(201).json({ mensagem: "Usuário criado com sucesso" })
     } catch (error) {
@@ -84,6 +84,28 @@ app.post('/api/register-user', async (req, res) => {
     }
 })
 
+// GET para pegar todos os IDs dos usuários
+app.get('/api/users', async (req, res) => {
+    try {
+        const users = await User.find().select('_id name email');
+        res.json(users);
+    } catch (error) {
+        res.status(500).json({ mensagem: "Erro ao buscar usuários", erro: error.message });
+    }
+});
+
+// GET para pegar um usuário específico pelo ID
+app.get('/api/users/:id', async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id).select('_id name email');
+        if (!user) {
+            return res.status(404).json({ mensagem: "Usuário não encontrado" });
+        }
+        res.json(user);
+    } catch (error) {
+        res.status(500).json({ mensagem: "Erro ao buscar usuário", erro: error.message });
+    }
+});
 
 //LOGIN DE USUÁRIO
 app.post('/api/login-user', async (req, res) => {
@@ -96,6 +118,7 @@ app.post('/api/login-user', async (req, res) => {
 
         if (user && (await user.matchPassword(password))) {
             res.json({
+                name: user.name,
                 email: user.email,
                 token: generateToken(user._id),
                 mensagem: "Login Realizado com sucesso"
