@@ -4,34 +4,20 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url('assets/imagem-login.png'); /* coloque sua imagem */
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+    background-image: url('assets/imagem-login.png');
+    /* coloque sua imagem */
     background-size: cover;
-=======
-    background-size: cover; 
->>>>>>> Stashed changes
-=======
-    background-size: cover; 
->>>>>>> Stashed changes
+    background-size: cover;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
     height: 100vh;
     display: flex;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     justify-content: center;
     align-items: center;
-=======
     align-items: center;
     justify-content: center;
->>>>>>> Stashed changes
-=======
-    align-items: center;
-    justify-content: center;
->>>>>>> Stashed changes
-} 
+}
 
 .overlay {
     position: fixed;
@@ -39,33 +25,28 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.45);
+    background: rgba(0, 0, 0, 0.45);
 }
 
 .form-container {
     position: relative;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     max-width: 750px;
     width: 40%;
     padding: 14px;
     padding-right: 34px;
-=======
-=======
->>>>>>> Stashed changes
+
     height: 540px;
     width: 70%;
     max-width: 500px;
     padding: 12px;
     padding-right: 36px;
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
     margin: 50px auto;
     border-radius: 20px;
-    background: rgba(0,0,0,0.25); /* Transparente escuro */
-    backdrop-filter: blur(6px); /* deixa moderno */
+    background: rgba(0, 0, 0, 0.25);
+    /* Transparente escuro */
+    backdrop-filter: blur(6px);
+    /* deixa moderno */
     color: white;
 }
 
@@ -75,7 +56,8 @@ body {
     /* O JS já define a cor e display, mas este garante o espaço */
     font-weight: bold;
     text-align: center;
-    z-index: 1000; /* Garante que o feedback não fique atrás de nada */
+    z-index: 1000;
+    /* Garante que o feedback não fique atrás de nada */
 }
 
 
@@ -91,19 +73,21 @@ input {
     margin-bottom: 18px;
     border: none;
     border-radius: 12px;
-    background: #F5A544; /* LARANJA */
+    background: #F5A544;
+    /* LARANJA */
     color: #222;
     font-size: 15px;
 }
 
 input::placeholder {
-    color: rgba(0,0,0,0.6);
+    color: rgba(0, 0, 0, 0.6);
 }
 
 button {
     width: 60%;
     padding: 12px;
-    background: #C168FF; /* ROXO */
+    background: #C168FF;
+    /* ROXO */
     border: none;
     border-radius: 30px;
     color: #000;
@@ -118,4 +102,3 @@ button {
 button:hover {
     transform: scale(1.05);
 }
-

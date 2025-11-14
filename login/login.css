@@ -4,15 +4,9 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     background-image: url('assets/imagem-login-copy.png'); /* coloque sua imagem */
-=======
     background-image: url('../registro/assets/imagem-login copy.png'); /* coloque sua imagem */
->>>>>>> Stashed changes
-=======
     background-image: url('../registro/assets/imagem-login copy.png'); /* coloque sua imagem */
->>>>>>> Stashed changes
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
