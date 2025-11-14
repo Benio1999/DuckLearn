@@ -5,13 +5,35 @@ const nomeUsuarioElement = document.getElementById('nomeUsuario');
 const userNameSidebar = document.getElementById('userNameSidebar');
 const userInitial = document.getElementById('userInitial');
 
+// Função para verificar se é mobile
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
 // Abre e fecha o menu lateral
 if (btnCollapse) {
     btnCollapse.addEventListener('click', (e) => {
         e.preventDefault();
-        sidebar.classList.toggle('collapsed');
+        
+        if (isMobile()) {
+            // Em mobile, toggle a classe 'active'
+            sidebar.classList.toggle('active');
+        } else {
+            // Em desktop, toggle a classe 'collapsed'
+            sidebar.classList.toggle('collapsed');
+        }
     });
 }
+
+// Fechar sidebar quando clicar fora dela em mobile
+document.addEventListener('click', (e) => {
+    if (isMobile() && sidebar.classList.contains('active')) {
+        // Se clicou fora da sidebar e do botão, fecha
+        if (!sidebar.contains(e.target) && !btnCollapse.contains(e.target)) {
+            sidebar.classList.remove('active');
+        }
+    }
+});
 
 // Função para exibir o nome do usuário logado
 function exibirNomeUsuario() {
@@ -42,6 +64,14 @@ function exibirNomeUsuario() {
         userInitial.textContent = inicial;
     }
 }
+
+// Remover classes de mobile/desktop ao redimensionar
+window.addEventListener('resize', () => {
+    if (!isMobile()) {
+        // Se redimensionou para desktop, remove a classe 'active'
+        sidebar.classList.remove('active');
+    }
+});
 
 // Chamar a função quando a página carregar
 document.addEventListener('DOMContentLoaded', exibirNomeUsuario);
