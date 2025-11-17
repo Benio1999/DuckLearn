@@ -160,10 +160,13 @@ body {
     transition: transform 0.3s ease;
     z-index: 1100;
 }
+
 /* Remove as bolinhas e espaçamentos da lista da sidebar */
 .sidebar .menu ul {
-    list-style: none;   /* remove os marcadores */
-    padding-left: 0;    /* remove o recuo padrão */
+    list-style: none;
+    /* remove os marcadores */
+    padding-left: 0;
+    /* remove o recuo padrão */
     margin: 0;
 }
 
@@ -673,6 +676,7 @@ body {
         font-size: 0.8rem;
     }
 }
-   body{
-      background-color: rgb(255, 221, 159);
-   }
+
+body {
+    background-color: rgb(255, 221, 159);
+}
