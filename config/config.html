@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações da Conta</title>
+    <link rel="stylesheet" href="config.css"> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <div class="settings-container">
+        
+        <h1>Configurações da Conta</h1>
+
+        <section class="config-section profile-section">
+            <h2>Dados do Perfil</h2>
+            
+            <form id="profile-form">
+                <div id="profile-feedback" class="form-feedback" style="display: none;"></div>
+                
+                <div class="profile-photo-container">
+                    <img src="avatar.jpg" alt="Foto de Perfil Atual" class="profile-photo" id="current-photo">
+                    <label for="photo-upload" class="photo-upload-label">
+                        <i class="material-icons">camera_alt</i>
+                        Alterar Foto
+                    </label>
+                    <input type="file" id="photo-upload" accept="image/*" style="display: none;">
+                </div>
+
+                <label for="username">Nome de Usuário:</label>
+                <input type="text" id="username" value="NomeAtual" required>
+
+                <label for="bio">Biografia:</label>
+                <textarea id="bio" maxlength="250" placeholder="Fale um pouco sobre você..."></textarea>
+                
+                <button type="submit" class="save-button">Salvar Perfil</button>
+            </form>
+        </section>
+
+        <section class="config-section security-section">
+            <h2>Segurança</h2>
+            
+            <form id="password-form">
+                <div id="password-feedback" class="form-feedback" style="display: none;"></div>
+
+                <label for="current-password">Senha Atual:</label>
+                <input type="password" id="current-password" required>
+
+                <label for="new-password">Nova Senha:</label>
+                <input type="password" id="new-password" minlength="8" required>
+
+                <label for="confirm-password">Confirmar Nova Senha:</label>
+                <input type="password" id="confirm-password" minlength="8" required>
+                
+                <button type="submit" class="save-button">Alterar Senha</button>
+            </form>
+        </section>
+
+        <section class="config-section actions-section">
+            <button class="logout-button">Sair</button>
+        </section>
+
+    </div>
+
+    <script src="config.js"></script>
+    
+</body>
+</html>

@@ -1,20 +1,16 @@
 /* Seu CSS de Inscrição */
+/* Seu CSS de Inscrição */
 
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url('assets/imagem-login.png');
-    /* coloque sua imagem */
-    background-size: cover;
-    background-size: cover;
+    background-image: url('assets/imagem-login.png'); /* coloque sua imagem */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
     align-items: center;
     justify-content: center;
 }
@@ -30,17 +26,11 @@ body {
 
 .form-container {
     position: relative;
-    max-width: 750px;
-    width: 40%;
-    padding: 14px;
-    padding-right: 34px;
-
     height: 540px;
     width: 70%;
     max-width: 500px;
     padding: 12px;
     padding-right: 36px;
-
     margin: 50px auto;
     border-radius: 20px;
     background: rgba(0, 0, 0, 0.25);
@@ -50,7 +40,6 @@ body {
     color: white;
 }
 
-
 /* Garante que o feedback fique acima de tudo e use o espaço corretamente */
 #inscricao-feedback {
     /* O JS já define a cor e display, mas este garante o espaço */
@@ -59,7 +48,6 @@ body {
     z-index: 1000;
     /* Garante que o feedback não fique atrás de nada */
 }
-
 
 label {
     font-weight: bold;
@@ -102,3 +90,6 @@ button {
 button:hover {
     transform: scale(1.05);
 }
+input {
+
+    width: 100%;
