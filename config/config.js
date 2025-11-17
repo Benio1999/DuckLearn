@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const feedbackProfile = document.getElementById('profile-feedback');
 
     const userNameInput = document.getElementById('username');
-    const userEmailInput = document.getElementById('user-email'); // optional
+    const userEmailInput = document.getElementById('useremail');
 
     // Senha
     const passwordForm = document.getElementById('password-form');
@@ -54,14 +54,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // UPLOAD DE FOTO 
     if (photoUpload && currentPhoto) {
-        photoUpload.addEventListener('change', function(event) {
-            if (event.target.files && event.target.files[0]) {
+        photoUpload.addEventListener('change', function(e) {
+            if (e.target.files && e.target.files[0]) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     currentPhoto.src = e.target.result;
                     localStorage.setItem('userPhoto', e.target.result);
                 };
-                reader.readAsDataURL(event.target.files[0]);
+                reader.readAsDataURL(e.target.files[0]);
             }
         });
     }
@@ -81,10 +81,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             try {
-                const response = await fetch(`${API_URL}/api/update-profile`, {
+                const userId = localStorage.getItem('userId');
+                if (!userId) {
+                    exibirFeedback(feedbackProfile, 'Erro: ID do usuário não encontrado. Faça login novamente.', 'error');
+                    return;
+                }
+                
+                const response = await fetch(`${API_URL}/api/users/${userId}`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ userId: localStorage.getItem('userId'), name, email })
+                    body: JSON.stringify({ name, email })
                 });
                 const data = await response.json();
                 if (response.ok) {
@@ -94,8 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     exibirFeedback(feedbackProfile, data.mensagem || 'Erro ao atualizar perfil.', 'error');
                 }
-            } catch (err) {
-                console.error(err);
+            } catch (error) {
                 exibirFeedback(feedbackProfile, 'Erro de conexão com o servidor.', 'error');
             }
         });
@@ -120,10 +125,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             try {
-                const response = await fetch(`${API_URL}/api/update-password`, {
+                const userId = localStorage.getItem('userId');
+                if (!userId) {
+                    exibirFeedback(feedbackPassword, 'Erro: ID do usuário não encontrado. Faça login novamente.', 'error');
+                    return;
+                }
+                
+                const response = await fetch(`${API_URL}/api/users/${userId}/password`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ userId: localStorage.getItem('userId'), newPassword: senhaNova })
+                    body: JSON.stringify({ newPassword: senhaNova })
                 });
                 const data = await response.json();
                 if (response.ok) {
@@ -132,9 +143,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     exibirFeedback(feedbackPassword, data.mensagem || 'Erro ao atualizar senha.', 'error');
                 }
-            } catch (err) {
-                console.error(err);
-                exibirFeedback(feedbackPassword, 'Erro de conexão com o servidor.', 'error');
+            } catch (error) {
+                exibirFeedback(feedbackPassword, 'Erro de conexão.', 'error');
             }
         });
     }
@@ -147,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.removeItem('userPhoto');
                 localStorage.removeItem('userEmail');
                 localStorage.removeItem('userId');
-                window.location.href = '../login/login.html';
+                window.location.href = '../principal_page/principal.html';
             }
         });
     }
