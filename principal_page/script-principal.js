@@ -1,36 +1,80 @@
 const API_URL = 'http://localhost:3004';
 const sidebar = document.getElementById('sidebar');
 const btnCollapse = document.getElementById('btn-collapse');
-const username = document.querySelector('.content'); // ou '.titulo'
-const usuarioDiv = document.querySelector('.usuario'); // Novo: pegar a div do usuário
+const nomeUsuarioElement = document.getElementById('nomeUsuario');
+const userNameSidebar = document.getElementById('userNameSidebar');
+const userInitial = document.getElementById('userInitial');
+
+// Função para verificar se é mobile
+function isMobile() {
+    return window.innerWidth <= 768;
+}
 
 // Abre e fecha o menu lateral
 if (btnCollapse) {
     btnCollapse.addEventListener('click', (e) => {
         e.preventDefault();
-        sidebar.classList.toggle('collapsed');
+        
+        if (isMobile()) {
+            // Em mobile, toggle a classe 'active'
+            sidebar.classList.toggle('active');
+        } else {
+            // Em desktop, toggle a classe 'collapsed'
+            sidebar.classList.toggle('collapsed');
+        }
     });
 }
+
+// Fechar sidebar quando clicar fora dela em mobile
+document.addEventListener('click', (e) => {
+    if (isMobile() && sidebar.classList.contains('active')) {
+        // Se clicou fora da sidebar e do botão, fecha
+        if (!sidebar.contains(e.target) && !btnCollapse.contains(e.target)) {
+            sidebar.classList.remove('active');
+        }
+    }
+});
 
 // Função para exibir o nome do usuário logado
 function exibirNomeUsuario() {
     // Pegar o nome armazenado no localStorage após o login
     const userName = localStorage.getItem('userName');
     
-    // Se existe a div com classe 'usuario', atualizar o texto
-    if (usuarioDiv && userName) {
-        usuarioDiv.textContent = `Bem vindo ${userName}`;
-    } else if (usuarioDiv) {
-        usuarioDiv.textContent = 'Bem vindo Usuário';
+    // Atualizar header principal com saudação
+    if (nomeUsuarioElement) {
+        if (userName) {
+            nomeUsuarioElement.textContent = `Bem-vindo, ${userName}! O que iremos aprender hoje?`;
+        } else {
+            nomeUsuarioElement.textContent = 'Bem-vindo! Faça login para continuar.';
+        }
     }
     
-    // Também atualizar o .content se existir
-    if (username && userName) {
-        const h4 = document.createElement('h4');
-        h4.textContent = `Bem-vindo, ${userName}! O que iremos aprender hoje?`;
-        username.appendChild(h4);
+    // Atualizar nome na sidebar
+    if (userNameSidebar) {
+        if (userName) {
+            userNameSidebar.textContent = userName;
+        } else {
+            userNameSidebar.textContent = 'Usuário';
+        }
+    }
+    
+    // Atualizar inicial do nome na sidebar
+    if (userInitial && userName) {
+        const inicial = userName.charAt(0).toUpperCase();
+        userInitial.textContent = inicial;
     }
 }
 
+// Remover classes de mobile/desktop ao redimensionar
+window.addEventListener('resize', () => {
+    if (!isMobile()) {
+        // Se redimensionou para desktop, remove a classe 'active'
+        sidebar.classList.remove('active');
+    }
+});
+
 // Chamar a função quando a página carregar
 document.addEventListener('DOMContentLoaded', exibirNomeUsuario);
+
+// Atualizar nome de usuário quando houver mudanças no localStorage
+window.addEventListener('storage', exibirNomeUsuario);
