@@ -81,6 +81,33 @@ body {
     font-size: 1.2rem;
 }
 
+.pro-sidebar-logo div:first-child {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pro-sidebar-logo div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.pro-sidebar-logo h5 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.user-name-sidebar {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #ddd;
+    font-weight: 400;
+}
+
 /* ======== MENU ======== */
 .menu {
     list-style: none;
@@ -240,6 +267,22 @@ body {
     max-width: 100%;
 }
 
+/* ======== USUARIO HEADER ======== */
+.usuario-header {
+    background: linear-gradient(135deg, #ff9800, #ffb84d);
+    color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.2);
+}
+
+.usuario-header h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
 /* ======== FEATURES SECTION ======== */
 .features {
     display: flex;
@@ -389,6 +432,15 @@ body {
         width: 140px;
     }
 
+    .usuario-header {
+        padding: 1rem 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .usuario-header h3 {
+        font-size: 1.1rem;
+    }
+
     .features {
         flex-direction: column;
         align-items: stretch;
@@ -401,17 +453,34 @@ body {
         padding: 1.5rem;
     }
 
-    /* Sidebar em mobile */
+    /* Sidebar em mobile - começa escondida */
     .sidebar {
         position: fixed;
         width: 220px;
-        left: -220px;
+        left: -220px !important;
         transition: left 0.3s ease;
         z-index: 1000;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
     }
 
     .sidebar.active {
+        left: 0 !important;
+    }
+
+    .sidebar.collapsed {
+        left: -220px !important;
+    }
+
+    /* Overlay ao abrir sidebar */
+    .sidebar.active::before {
+        content: '';
+        position: fixed;
+        top: 0;
         left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
     }
 
     .sidebar-collapser {
@@ -496,18 +565,31 @@ body {
         font-size: 0.9rem;
     }
 
-    /* Sidebar mobile */
+    .usuario-header {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 10px;
+    }
+
+    .usuario-header h3 {
+        font-size: 1rem;
+    }
+
+    /* Sidebar mobile - começa escondida */
     .sidebar {
         position: fixed;
         width: 200px;
-        left: -200px;
+        left: -200px !important;
         height: 100vh;
         z-index: 1000;
     }
 
     .sidebar.active {
-        left: 0;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        left: 0 !important;
+    }
+
+    .sidebar.collapsed {
+        left: -200px !important;
     }
 
     .sidebar-collapser {
@@ -573,6 +655,14 @@ body {
 
     .hero img {
         width: 80px;
+    }
+
+    .usuario-header {
+        padding: 0.8rem;
+    }
+
+    .usuario-header h3 {
+        font-size: 0.9rem;
     }
 
     .card {

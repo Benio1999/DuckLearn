@@ -14,7 +14,14 @@ const usuarioDiv = document.querySelector('.usuario'); // Div do perfil do usuá
 if (btnCollapse) {
     btnCollapse.addEventListener('click', (e) => {
         e.preventDefault();
-        sidebar.classList.toggle('collapsed');
+        
+        if (isMobile()) {
+            // Em mobile, toggle a classe 'active'
+            sidebar.classList.toggle('active');
+        } else {
+            // Em desktop, toggle a classe 'collapsed'
+            sidebar.classList.toggle('collapsed');
+        }
     });
 }
 
