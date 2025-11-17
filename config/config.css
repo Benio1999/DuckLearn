@@ -1,0 +1,318 @@
+/* ========================================
+   PÁGINA DE CONFIGURAÇÕES - ESTILO GERAL
+   ======================================== */
+
+/* RESET BÁSICO */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* CONTAINER PRINCIPAL */
+.settings-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    width: 100%;
+}
+
+h1 {
+    color: #2c3e50;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+/* SEÇÕES */
+.config-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #e0e6ec;
+    border-radius: 6px;
+}
+
+.config-section h2 {
+    color: #3498db;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+/* FORMULÁRIO GERAL */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* INPUTS E TEXTAREAS - Estilos de Entrada */
+input[type="text"], 
+input[type="email"],
+input[type="password"], 
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus, 
+input[type="email"]:focus,
+input[type="password"]:focus, 
+textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+/* Desabilita o input de email para não ser editado */
+input[type="email"]:disabled {
+    background-color: #ecf0f1;
+    cursor: not-allowed;
+}
+
+textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+/* --- ESTILO PARA O FEEDBACK VISUAL (Mensagens de Sucesso/Erro) --- */
+.form-feedback {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    display: none;
+}
+
+/* Feedback de sucesso (verde) */
+.form-feedback.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Feedback de erro (vermelho) */
+.form-feedback.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+/* -------------------------------------------------------------------- */
+
+
+/* FOTO DE PERFIL - Container e Estilo da Imagem */
+.profile-photo-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.profile-photo-wrapper {
+    position: relative;
+}
+
+/* Imagem de perfil circular com borda */
+#current-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #3498db;
+    transition: border-color 0.3s;
+}
+
+#current-photo:hover {
+    border-color: #2980b9;
+}
+
+.photo-upload-section {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Label customizado para upload de foto */
+.photo-upload-label {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: normal;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+}
+
+.photo-upload-label:hover {
+    background-color: #2980b9;
+}
+
+/* Esconde o input de arquivo padrão */
+#photo-upload {
+    display: none;
+}
+
+/* BOTÕES DE AÇÃO - Salvar, Logout e Voltar */
+button {
+    padding: 12px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Botão de salvar (verde) */
+.save-button {
+    background-color: #27ae60;
+    color: white;
+}
+
+.save-button:hover {
+    background-color: #229954;
+}
+
+/* Botão de logout (vermelho) */
+.logout-button {
+    background-color: #e74c3c;
+    color: white;
+    margin-top: 20px;
+}
+
+.logout-button:hover {
+    background-color: #c0392b;
+}
+
+/* Botão de voltar (cinza) */
+.back-button {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.back-button:hover {
+    background-color: #7f8c8d;
+}
+
+/* SEÇÃO DE AÇÕES - Layout com botões lado a lado */
+.actions-section {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0 !important;
+    border: none !important;
+}
+
+.actions-section button {
+    flex: 1;
+    min-width: 150px;
+    margin-top: 0;
+    margin-right: 5px;
+}
+
+/* Responsividade Básica - Telas médias (até 600px) */
+@media (max-width: 600px) {
+    .settings-container {
+        padding: 20px;
+        border-radius: 4px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .config-section {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .config-section h2 {
+        font-size: 1.2em;
+    }
+
+    .profile-photo-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #current-photo {
+        width: 80px;
+        height: 80px;
+    }
+
+    input[type="text"], 
+    input[type="email"],
+    input[type="password"], 
+    textarea {
+        font-size: 16px;
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 0.95em;
+    }
+
+    /* Em telas pequenas, os botões ficam um sobre o outro */
+    .actions-section {
+        flex-direction: column;
+    }
+
+    .actions-section button {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* Responsividade para telas muito pequenas (até 400px) */
+@media (max-width: 400px) {
+    body {
+        padding: 10px;
+    }
+
+    .settings-container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.3em;
+    }
+
+    button {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+}

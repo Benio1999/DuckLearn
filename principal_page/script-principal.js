@@ -1,16 +1,16 @@
+
+
 const API_URL = 'http://localhost:3004';
 const sidebar = document.getElementById('sidebar');
 const btnCollapse = document.getElementById('btn-collapse');
-const nomeUsuarioElement = document.getElementById('nomeUsuario');
-const userNameSidebar = document.getElementById('userNameSidebar');
-const userInitial = document.getElementById('userInitial');
+const username = document.querySelector('.content'); // Elemento de conteúdo principal
+const usuarioDiv = document.querySelector('.usuario'); // Div do perfil do usuário
 
-// Função para verificar se é mobile
-function isMobile() {
-    return window.innerWidth <= 768;
-}
 
-// Abre e fecha o menu lateral
+// MENU LATERAL RESPONSIVO 
+/**
+ * Abre e fecha o menu lateral (sidebar) para navegação em dispositivos móveis.
+ */
 if (btnCollapse) {
     btnCollapse.addEventListener('click', (e) => {
         e.preventDefault();
@@ -25,56 +25,39 @@ if (btnCollapse) {
     });
 }
 
-// Fechar sidebar quando clicar fora dela em mobile
-document.addEventListener('click', (e) => {
-    if (isMobile() && sidebar.classList.contains('active')) {
-        // Se clicou fora da sidebar e do botão, fecha
-        if (!sidebar.contains(e.target) && !btnCollapse.contains(e.target)) {
-            sidebar.classList.remove('active');
-        }
-    }
-});
-
-// Função para exibir o nome do usuário logado
-function exibirNomeUsuario() {
-    // Pegar o nome armazenado no localStorage após o login
+function exibirPerfil() {
     const userName = localStorage.getItem('userName');
+    const userPhoto = localStorage.getItem('userPhoto');
     
-    // Atualizar header principal com saudação
-    if (nomeUsuarioElement) {
-        if (userName) {
-            nomeUsuarioElement.textContent = `Bem-vindo, ${userName}! O que iremos aprender hoje?`;
+    if (usuarioDiv) {
+        if (userPhoto) {
+            // Se tiver foto armazenada, exibir a foto de perfil
+            usuarioDiv.innerHTML = `<img src="${userPhoto}" alt="${userName}" class="profile-photo-small" title="Clique para acessar configurações">`;
+            usuarioDiv.style.cursor = 'pointer';
+        } else if (userName) {
+            // Se não tiver foto, exibir avatar com a inicial do nome
+            const inicial = userName.charAt(0).toUpperCase();
+            usuarioDiv.innerHTML = `<div class="profile-initial" title="Clique para acessar configurações">${inicial}</div>`;
+            usuarioDiv.style.cursor = 'pointer';
         } else {
-            nomeUsuarioElement.textContent = 'Bem-vindo! Faça login para continuar.';
+            // Se não houver dados, exibir um avatar padrão
+            usuarioDiv.innerHTML = `<div class="profile-initial">?</div>`;
         }
+        
+        // Adicionar evento de clique para abrir as configurações
+        usuarioDiv.addEventListener('click', function() {
+            window.location.href = '../config/config.html';
+        });
     }
-    
-    // Atualizar nome na sidebar
-    if (userNameSidebar) {
-        if (userName) {
-            userNameSidebar.textContent = userName;
-        } else {
-            userNameSidebar.textContent = 'Usuário';
-        }
-    }
-    
-    // Atualizar inicial do nome na sidebar
-    if (userInitial && userName) {
-        const inicial = userName.charAt(0).toUpperCase();
-        userInitial.textContent = inicial;
+
+    // Também exibir mensagem de boas-vindas no conteúdo
+    if (username && userName) {
+        const h4 = document.createElement('h4');
+        h4.textContent = `Bem-vindo, ${userName}! O que iremos aprender hoje?`;
+        username.appendChild(h4);
     }
 }
 
-// Remover classes de mobile/desktop ao redimensionar
-window.addEventListener('resize', () => {
-    if (!isMobile()) {
-        // Se redimensionou para desktop, remove a classe 'active'
-        sidebar.classList.remove('active');
-    }
-});
 
-// Chamar a função quando a página carregar
-document.addEventListener('DOMContentLoaded', exibirNomeUsuario);
 
-// Atualizar nome de usuário quando houver mudanças no localStorage
-window.addEventListener('storage', exibirNomeUsuario);
+document.addEventListener('DOMContentLoaded', exibirPerfil);
