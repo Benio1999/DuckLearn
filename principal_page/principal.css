@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #f5f6fa;
+    background-color: rgb(255, 221, 159);
     color: #333;
     display: flex;
     min-height: 100vh;
@@ -251,6 +251,7 @@ body {
 }
 
 /* ======== HERO SECTION ======== */
+
 .hero {
     display: flex;
     justify-content: space-between;
@@ -258,16 +259,23 @@ body {
     background: linear-gradient(135deg, #ff9800, #ffb84d);
     border-radius: 16px;
     padding: 3rem;
+    padding-left: 1.5rem; /* reduzir espaço à esquerda para aproximar o texto */
     color: white;
     margin-bottom: 2rem;
     gap: 2rem;
 }
 
 .hero .content {
-    flex: 1;
+    /* flex: 1 1 auto; */
     min-width: 0;
     text-align: left; /* garantir alinhamento à esquerda no desktop */
+    max-width: 60%; /* limitar largura do bloco de texto para afastar a imagem */
+    padding-right: 1rem; /* garantir espaçamento entre texto e imagem */
 }
+
+/* .hero .illustration {
+    flex: 1 0 auto; /* manter a ilustração com tamanho fixo definido pela img 
+} */
 
 .hero .illustration {
     flex: 1;
@@ -293,10 +301,10 @@ body {
     margin-bottom: 0;
 }
 
-.hero img {
-    width: 200px;
-    height: auto;
+.hero .illustration img {
+    width: 260px; /* tamanho padrão em desktop */
     max-width: 100%;
+    height: auto;
 }
 
 /* ======== USUARIO HEADER ======== */
@@ -411,8 +419,8 @@ body {
         font-size: 1.6rem;
     }
 
-    .hero img {
-        width: 160px;
+    .hero .illustration img {
+        width: 220px;
     }
 
     .features {
@@ -465,8 +473,8 @@ body {
         font-size: 1rem;
     }
 
-    .hero img {
-        width: 140px;
+    .hero .illustration img {
+        width: 180px;
     }
 
     .usuario-header {
@@ -555,8 +563,8 @@ body {
         margin-top: 0.5rem;
     }
 
-    .hero img {
-        width: 100px;
+    .hero .illustration img {
+        width: 120px;
         margin-top: 1rem;
     }
 
@@ -680,7 +688,7 @@ body {
         font-size: 0.9rem;
     }
 
-    .hero img {
+    .hero .illustration img {
         width: 80px;
     }
 
@@ -704,6 +712,4 @@ body {
         font-size: 0.8rem;
     }
 }
-   body{
-      background-color: rgb(255, 221, 159);
-   }
+/* end of file */
