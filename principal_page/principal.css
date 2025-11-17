@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #f5f6fa;
+    background-color: rgb(255, 221, 159);
     color: #333;
     display: flex;
     min-height: 100vh;
@@ -38,6 +38,17 @@ body {
     flex-direction: column;
     transition: width 0.3s ease;
     overflow: hidden;
+    z-index: 1001;
+}
+
+/* Overlay (criado dinamicamente via JS) */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1000;
 }
 
@@ -84,6 +95,30 @@ body {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+}
+
+/* Estilos específicos para o quadrado da inicial / foto */
+#userInitial {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 8px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #ff9800; /* fallback */
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+#userInitial img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .pro-sidebar-logo div:last-child {
@@ -219,6 +254,7 @@ body {
 }
 
 /* ======== HERO SECTION ======== */
+
 .hero {
     display: flex;
     justify-content: space-between;
@@ -226,15 +262,23 @@ body {
     background: linear-gradient(135deg, #ff9800, #ffb84d);
     border-radius: 16px;
     padding: 3rem;
+    padding-left: 1.5rem; /* reduzir espaço à esquerda para aproximar o texto */
     color: white;
     margin-bottom: 2rem;
     gap: 2rem;
 }
 
 .hero .content {
-    flex: 1;
+    /* flex: 1 1 auto; */
     min-width: 0;
+    text-align: left; /* garantir alinhamento à esquerda no desktop */
+    max-width: 60%; /* limitar largura do bloco de texto para afastar a imagem */
+    padding-right: 1rem; /* garantir espaçamento entre texto e imagem */
 }
+
+/* .hero .illustration {
+    flex: 1 0 auto; /* manter a ilustração com tamanho fixo definido pela img 
+} */
 
 .hero .illustration {
     flex: 1;
@@ -379,8 +423,8 @@ body {
         font-size: 1.6rem;
     }
 
-    .hero img {
-        width: 160px;
+    .hero .illustration img {
+        width: 220px;
     }
 
     .features {
@@ -407,6 +451,11 @@ body {
         margin-bottom: 1.5rem;
     }
 
+    /* garantir que o bloco de texto fique centralizado em mobile */
+    .hero .content {
+        text-align: center;
+    }
+
     .hero .text-content {
         order: 2;
     }
@@ -428,8 +477,8 @@ body {
         font-size: 1rem;
     }
 
-    .hero img {
-        width: 140px;
+    .hero .illustration img {
+        width: 180px;
     }
 
     .usuario-header {
@@ -471,17 +520,7 @@ body {
         left: -220px !important;
     }
 
-    /* Overlay ao abrir sidebar */
-    .sidebar.active::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: -1;
-    }
+    /* overlay handled by a real DOM element (see script-principal.js) */
 
     .sidebar-collapser {
         display: flex;
@@ -528,8 +567,8 @@ body {
         margin-top: 0.5rem;
     }
 
-    .hero img {
-        width: 100px;
+    .hero .illustration img {
+        width: 120px;
         margin-top: 1rem;
     }
 
@@ -653,7 +692,7 @@ body {
         font-size: 0.9rem;
     }
 
-    .hero img {
+    .hero .illustration img {
         width: 80px;
     }
 

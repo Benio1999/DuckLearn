@@ -66,7 +66,8 @@ function exibirFeedback(elemento, mensagem, tipo) {
                 // Sucesso: Armazena o token E o nome do usuário no localStorage
                 exibirFeedback(feedbackLogin, data.mensagem + ' Acessando a página principal...', 'success');
                 localStorage.setItem('userToken', data.token);
-                localStorage.setItem('userName', data.name); // ✅ Armazenar o nome
+                localStorage.setItem('userName', data.name); //  Armazenar o nome
+                localStorage.setItem('userId', data._id); //  Armazenar o ID do usuário
 
                 //limpa o formulário após o sucesso
                 formLogin.reset();

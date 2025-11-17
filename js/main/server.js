@@ -118,6 +118,7 @@ app.post('/api/login-user', async (req, res) => {
 
         if (user && (await user.matchPassword(password))) {
             res.json({
+                _id: user._id,
                 name: user.name,
                 email: user.email,
                 token: generateToken(user._id),
@@ -131,7 +132,54 @@ app.post('/api/login-user', async (req, res) => {
     }
 });
 
+// PUT para atualizar perfil (nome e email)
+app.put('/api/users/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { name, email } = req.body;
+        
+        if (!name) {
+            return res.status(400).json({ mensagem: "Nome é obrigatório" });
+        }
+        
+        const usuarioAtualizado = await User.findByIdAndUpdate(
+            id,
+            { name, email },
+            { new: true, runValidators: true }
+        );
+        
+        if (!usuarioAtualizado) {
+            return res.status(404).json({ mensagem: "Usuário Não Encontrado" });
+        }
+        
+        res.json({ mensagem: "Perfil atualizado com sucesso", user: usuarioAtualizado });
+    } catch (error) {
+        res.status(400).json({ mensagem: "Erro ao atualizar", erro: error.message });
+    }
+});
 
-
+// PUT para atualizar senha
+app.put('/api/users/:id/password', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { newPassword } = req.body;
+        
+        if (!newPassword || newPassword.length < 8) {
+            return res.status(400).json({ mensagem: "Senha deve ter no mínimo 8 caracteres" });
+        }
+        
+        const usuario = await User.findById(id);
+        if (!usuario) {
+            return res.status(404).json({ mensagem: "Usuário Não Encontrado" });
+        }
+        
+        usuario.password = newPassword;
+        await usuario.save();
+        
+        res.json({ mensagem: "Senha atualizada com sucesso" });
+    } catch (error) {
+        res.status(400).json({ mensagem: "Erro ao atualizar senha", erro: error.message });
+    }
+});
 
 app.listen(PORT, () => console.log(`servidor rodando na porta ${PORT}`))

@@ -14,12 +14,10 @@ function isMobile() {
 if (btnCollapse) {
     btnCollapse.addEventListener('click', (e) => {
         e.preventDefault();
-        
         if (isMobile()) {
-            // Em mobile, toggle a classe 'active'
             sidebar.classList.toggle('active');
+            if (sidebar.classList.contains('active')) createOverlay(); else removeOverlay();
         } else {
-            // Em desktop, toggle a classe 'collapsed'
             sidebar.classList.toggle('collapsed');
         }
     });
