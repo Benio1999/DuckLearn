@@ -131,7 +131,22 @@ app.post('/api/login-user', async (req, res) => {
     }
 });
 
-
-
+app.put('/users/:name/:senha', async (req, res) => {
+    try {
+        const nome = req.body.nome
+        const senha = req.body.senha
+        const usuarioAtualizado = await Pessoa.findByIdAndUpdate(
+            id,
+            { nome, senha },
+            { new: true, runValidators: true }
+        )
+        if (!usuarioAtualizado) {
+            return res.status(404).json({ mensagem: " Usuário Não Encontrado" })
+        }
+        res.json(usuarioAtualizado)
+    } catch {
+        res.status(400).json({ mensagem: "Erro ao atualizar", erro: error.message })
+    }
+});
 
 app.listen(PORT, () => console.log(`servidor rodando na porta ${PORT}`))
