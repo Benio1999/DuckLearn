@@ -35,7 +35,7 @@ h1 {
     color: #fff;
     padding: 1.25rem 1.5rem;
     border-radius: 10px;
-    margin: -2rem 0 1.25rem 0;
+    margin: -0.5rem 0 1.25rem 0;
     box-shadow: 0 6px 18px rgba(255, 152, 0, 0.15);
     font-size: 1.6rem;
     font-weight: 600;
@@ -330,3 +330,53 @@ button:active {
         font-size: 0.9em;
     }
 }
+
+/* ======== DARK THEME OVERRIDES ======== */
+.dark-theme body {
+    background-color: #0f1724;
+    color: #e6eef8;
+}
+
+.dark-theme .settings-container {
+    background: #0b1220;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    color: #dce9f8;
+}
+
+.dark-theme .settings-container > h1 {
+    background: linear-gradient(135deg, #16232a, #22303a);
+    color: #fff;
+}
+
+.dark-theme .config-section {
+    background: #071218;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+.dark-theme label, .dark-theme .config-section h2 {
+    color: #dbeaf8;
+}
+
+.dark-theme input[type="text"],
+.dark-theme input[type="email"],
+.dark-theme input[type="password"],
+.dark-theme textarea {
+    background: #071722;
+    color: #e6eef8;
+    border: 1px solid #1f3340;
+}
+
+.dark-theme .photo-upload-label {
+    background: #ff9800;
+    color: #111;
+}
+
+.dark-theme .form-feedback.success { background-color: rgba(34,85,45,0.25); color:#bfe6c9; }
+.dark-theme .form-feedback.error { background-color: rgba(120,20,20,0.18); color:#f6c6c6; }
+
+.dark-theme .save-button { background: #ff9800; color: #111; }
+
+.dark-theme .logout-button, .dark-theme .back-button { box-shadow: none; }
+
+/* small transition */
+.dark-theme *, .dark-theme body, .dark-theme .settings-container { transition: background-color .2s ease,color .2s ease,box-shadow .2s ease;border-color .2s ease; }

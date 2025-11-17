@@ -713,3 +713,64 @@ body {
     }
 }
 /* end of file */
+
+/* ======== DARK THEME OVERRIDES ======== */
+.dark-theme body {
+    background-color: #0f1724;
+    color: #e6eef8;
+}
+
+.dark-theme .content,
+.dark-theme .layout,
+.dark-theme main,
+.dark-theme .features {
+    color: #e6eef8;
+}
+
+.dark-theme .sidebar {
+    background: #0b1220;
+    color: #dfe7f2;
+}
+
+.dark-theme .menu-item a {
+    color: #cdd6e6;
+}
+
+.dark-theme .menu-item a:hover {
+    background: rgba(255,255,255,0.03);
+}
+
+.dark-theme .hero {
+    background: linear-gradient(135deg, #21303b, #2e3f49);
+    color: #f5f8fb;
+}
+
+.dark-theme .usuario-header {
+    background: linear-gradient(135deg, #16232a, #22303a);
+    color: #f5f8fb;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+}
+
+.dark-theme .card {
+    background: #0b1722;
+    color: #d6e3f0;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+.dark-theme .card p { color: #bfcfe0; }
+
+.dark-theme .card.destaque {
+    background: linear-gradient(135deg,#2a3a46,#3a4a57);
+}
+
+.dark-theme .sidebar-footer { background: rgba(255,255,255,0.02); }
+
+/* smooth transitions when toggling theme */
+.dark-theme *,
+.dark-theme body,
+.dark-theme .hero,
+.dark-theme .card,
+.dark-theme .sidebar,
+.dark-theme .usuario-header {
+    transition: background-color .22s ease,color .22s ease,box-shadow .22s ease;
+}
