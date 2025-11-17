@@ -60,7 +60,19 @@ function exibirPerfil() {
 
     // atualizar sidebar
     if (userNameSidebar) userNameSidebar.textContent = userName || 'Usuário';
-    if (userInitial) userInitial.textContent = userName ? userName.charAt(0).toUpperCase() : 'U';
+    if (userInitial) {
+        if (userPhoto) {
+            // usar a foto como background do quadrado
+            userInitial.style.backgroundImage = `url(${userPhoto})`;
+            userInitial.style.backgroundSize = 'cover';
+            userInitial.style.backgroundPosition = 'center';
+            userInitial.textContent = '';
+        } else {
+            // remover background se houver
+            userInitial.style.backgroundImage = '';
+            userInitial.textContent = userName ? userName.charAt(0).toUpperCase() : 'U';
+        }
+    }
 
     // adicionar clique no header da sidebar (apenas uma vez)
     if (sidebarHeader && !sidebarHeader.dataset.clickBound) {
