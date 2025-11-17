@@ -1,7 +1,3 @@
-/* ========================================
-   PÁGINA PRINCIPAL - ESTILOS GERAIS
-   ======================================== */
-
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +6,7 @@
 }
 
 body {
-    background-color: #f5f6fa;
+    background-color: rgb(255, 221, 159);
     color: #333;
     display: flex;
     min-height: 100vh;
@@ -42,6 +38,17 @@ body {
     flex-direction: column;
     transition: width 0.3s ease;
     overflow: hidden;
+    z-index: 1001;
+}
+
+/* Overlay (criado dinamicamente via JS) */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1000;
 }
 
@@ -88,6 +95,30 @@ body {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+}
+
+/* Estilos específicos para o quadrado da inicial / foto */
+#userInitial {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 8px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #ff9800; /* fallback */
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+#userInitial img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .pro-sidebar-logo div:last-child {
@@ -220,6 +251,7 @@ body {
 }
 
 /* ======== HERO SECTION ======== */
+
 .hero {
     display: flex;
     justify-content: space-between;
@@ -227,15 +259,23 @@ body {
     background: linear-gradient(135deg, #ff9800, #ffb84d);
     border-radius: 16px;
     padding: 3rem;
+    padding-left: 1.5rem; /* reduzir espaço à esquerda para aproximar o texto */
     color: white;
     margin-bottom: 2rem;
     gap: 2rem;
 }
 
 .hero .content {
-    flex: 1;
+    /* flex: 1 1 auto; */
     min-width: 0;
+    text-align: left; /* garantir alinhamento à esquerda no desktop */
+    max-width: 60%; /* limitar largura do bloco de texto para afastar a imagem */
+    padding-right: 1rem; /* garantir espaçamento entre texto e imagem */
 }
+
+/* .hero .illustration {
+    flex: 1 0 auto; /* manter a ilustração com tamanho fixo definido pela img 
+} */
 
 .hero .illustration {
     flex: 1;
@@ -261,10 +301,10 @@ body {
     margin-bottom: 0;
 }
 
-.hero img {
-    width: 200px;
-    height: auto;
+.hero .illustration img {
+    width: 260px; /* tamanho padrão em desktop */
     max-width: 100%;
+    height: auto;
 }
 
 /* ======== USUARIO HEADER ======== */
@@ -379,8 +419,8 @@ body {
         font-size: 1.6rem;
     }
 
-    .hero img {
-        width: 160px;
+    .hero .illustration img {
+        width: 220px;
     }
 
     .features {
@@ -407,6 +447,11 @@ body {
         margin-bottom: 1.5rem;
     }
 
+    /* garantir que o bloco de texto fique centralizado em mobile */
+    .hero .content {
+        text-align: center;
+    }
+
     .hero .text-content {
         order: 2;
     }
@@ -428,8 +473,8 @@ body {
         font-size: 1rem;
     }
 
-    .hero img {
-        width: 140px;
+    .hero .illustration img {
+        width: 180px;
     }
 
     .usuario-header {
@@ -471,17 +516,7 @@ body {
         left: -220px !important;
     }
 
-    /* Overlay ao abrir sidebar */
-    .sidebar.active::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: -1;
-    }
+    /* overlay handled by a real DOM element (see script-principal.js) */
 
     .sidebar-collapser {
         display: flex;
@@ -528,8 +563,8 @@ body {
         margin-top: 0.5rem;
     }
 
-    .hero img {
-        width: 100px;
+    .hero .illustration img {
+        width: 120px;
         margin-top: 1rem;
     }
 
@@ -653,7 +688,7 @@ body {
         font-size: 0.9rem;
     }
 
-    .hero img {
+    .hero .illustration img {
         width: 80px;
     }
 
@@ -677,4 +712,65 @@ body {
         font-size: 0.8rem;
     }
 }
-/* End of principal page styles */
+/* end of file */
+
+/* ======== DARK THEME OVERRIDES ======== */
+.dark-theme body {
+    background-color: #0f1724;
+    color: #e6eef8;
+}
+
+.dark-theme .content,
+.dark-theme .layout,
+.dark-theme main,
+.dark-theme .features {
+    color: #e6eef8;
+}
+
+.dark-theme .sidebar {
+    background: #0b1220;
+    color: #dfe7f2;
+}
+
+.dark-theme .menu-item a {
+    color: #cdd6e6;
+}
+
+.dark-theme .menu-item a:hover {
+    background: rgba(255,255,255,0.03);
+}
+
+.dark-theme .hero {
+    background: linear-gradient(135deg, #21303b, #2e3f49);
+    color: #f5f8fb;
+}
+
+.dark-theme .usuario-header {
+    background: linear-gradient(135deg, #16232a, #22303a);
+    color: #f5f8fb;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+}
+
+.dark-theme .card {
+    background: #0b1722;
+    color: #d6e3f0;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+.dark-theme .card p { color: #bfcfe0; }
+
+.dark-theme .card.destaque {
+    background: linear-gradient(135deg,#2a3a46,#3a4a57);
+}
+
+.dark-theme .sidebar-footer { background: rgba(255,255,255,0.02); }
+
+/* smooth transitions when toggling theme */
+.dark-theme *,
+.dark-theme body,
+.dark-theme .hero,
+.dark-theme .card,
+.dark-theme .sidebar,
+.dark-theme .usuario-header {
+    transition: background-color .22s ease,color .22s ease,box-shadow .22s ease;
+}

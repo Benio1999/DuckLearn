@@ -1,63 +1,85 @@
-
-
 const API_URL = 'http://localhost:3004';
 const sidebar = document.getElementById('sidebar');
 const btnCollapse = document.getElementById('btn-collapse');
-const username = document.querySelector('.content'); // Elemento de conteúdo principal
-const usuarioDiv = document.querySelector('.usuario'); // Div do perfil do usuário
+const nomeUsuarioElement = document.getElementById('nomeUsuario');
+const userNameSidebar = document.getElementById('userNameSidebar');
+const userInitial = document.getElementById('userInitial');
+const sidebarHeader = document.querySelector('.sidebar-header');
 
+function isMobile() {
+    return window.innerWidth <= 768;
+}
 
-// MENU LATERAL RESPONSIVO 
-/**
- * Abre e fecha o menu lateral (sidebar) para navegação em dispositivos móveis.
- */
+function createOverlay() {
+    if (!document.getElementById('sidebar-overlay')) {
+        const ov = document.createElement('div');
+        ov.id = 'sidebar-overlay';
+        ov.className = 'sidebar-overlay';
+        ov.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            removeOverlay();
+        });
+        document.body.appendChild(ov);
+    }
+}
+
+function removeOverlay() {
+    const ov = document.getElementById('sidebar-overlay');
+    if (ov) ov.remove();
+}
+
+// Abre e fecha o menu lateral
 if (btnCollapse) {
     btnCollapse.addEventListener('click', (e) => {
         e.preventDefault();
-        
         if (isMobile()) {
-            // Em mobile, toggle a classe 'active'
             sidebar.classList.toggle('active');
+            if (sidebar.classList.contains('active')) createOverlay(); else removeOverlay();
         } else {
-            // Em desktop, toggle a classe 'collapsed'
             sidebar.classList.toggle('collapsed');
         }
     });
 }
 
+// Fechar overlay e sidebar ao redimensionar para desktop
+window.addEventListener('resize', () => {
+    if (!isMobile()) {
+        sidebar.classList.remove('active');
+        removeOverlay();
+    }
+});
+
 function exibirPerfil() {
     const userName = localStorage.getItem('userName');
     const userPhoto = localStorage.getItem('userPhoto');
-    
-    if (usuarioDiv) {
-        if (userPhoto) {
-            // Se tiver foto armazenada, exibir a foto de perfil
-            usuarioDiv.innerHTML = `<img src="${userPhoto}" alt="${userName}" class="profile-photo-small" title="Clique para acessar configurações">`;
-            usuarioDiv.style.cursor = 'pointer';
-        } else if (userName) {
-            // Se não tiver foto, exibir avatar com a inicial do nome
-            const inicial = userName.charAt(0).toUpperCase();
-            usuarioDiv.innerHTML = `<div class="profile-initial" title="Clique para acessar configurações">${inicial}</div>`;
-            usuarioDiv.style.cursor = 'pointer';
-        } else {
-            // Se não houver dados, exibir um avatar padrão
-            usuarioDiv.innerHTML = `<div class="profile-initial">?</div>`;
-        }
-        
-        // Adicionar evento de clique para abrir as configurações
-        usuarioDiv.addEventListener('click', function() {
-            window.location.href = '../config/config.html';
-        });
+
+    // atualizar saudação no conteúdo principal
+    if (nomeUsuarioElement) {
+        nomeUsuarioElement.textContent = userName ? `Bem-vindo(a), ${userName}! O que iremos aprender hoje?` : 'Bem-vindo! Faça login para continuar.';
     }
 
-    // Também exibir mensagem de boas-vindas no conteúdo
-    if (username && userName) {
-        const h4 = document.createElement('h4');
-        h4.textContent = `Bem-vindo, ${userName}! O que iremos aprender hoje?`;
-        username.appendChild(h4);
+    // atualizar sidebar
+    if (userNameSidebar) userNameSidebar.textContent = userName || 'Usuário';
+    if (userInitial) {
+        if (userPhoto) {
+            // usar a foto como background do quadrado
+            userInitial.style.backgroundImage = `url(${userPhoto})`;
+            userInitial.style.backgroundSize = 'cover';
+            userInitial.style.backgroundPosition = 'center';
+            userInitial.textContent = '';
+        } else {
+            // remover background se houver
+            userInitial.style.backgroundImage = '';
+            userInitial.textContent = userName ? userName.charAt(0).toUpperCase() : 'U';
+        }
+    }
+
+    // adicionar clique no header da sidebar (apenas uma vez)
+    if (sidebarHeader && !sidebarHeader.dataset.clickBound) {
+        sidebarHeader.addEventListener('click', () => { window.location.href = '../config/config.html'; });
+        sidebarHeader.dataset.clickBound = '1';
     }
 }
 
-
-
 document.addEventListener('DOMContentLoaded', exibirPerfil);
+window.addEventListener('storage', exibirPerfil);
