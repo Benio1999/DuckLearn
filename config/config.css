@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /* ========================================
    PÁGINA DE CONFIGURAÇÕES - ESTILO GERAL
    ======================================== */
@@ -6,6 +7,12 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f7f9;
+=======
+/* RESET BÁSICO */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e4e2e5;
+>>>>>>> Stashed changes
     color: #333;
     margin: 0;
     padding: 20px;
@@ -26,8 +33,13 @@ body {
 }
 
 h1 {
+<<<<<<< Updated upstream
     color: #2c3e50;
     border-bottom: 2px solid #ecf0f1;
+=======
+    color: #422c50;
+    border-bottom: 2px solid #19191a;
+>>>>>>> Stashed changes
     padding-bottom: 15px;
     margin-bottom: 25px;
     font-size: 1.8em;
@@ -37,12 +49,20 @@ h1 {
 .config-section {
     margin-bottom: 30px;
     padding: 20px;
+<<<<<<< Updated upstream
     border: 1px solid #e0e6ec;
+=======
+    border: 1px solid #19191a;
+>>>>>>> Stashed changes
     border-radius: 6px;
 }
 
 .config-section h2 {
+<<<<<<< Updated upstream
     color: #3498db;
+=======
+    color: #422c50;
+>>>>>>> Stashed changes
     margin-top: 0;
     margin-bottom: 15px;
     font-size: 1.4em;
@@ -61,9 +81,13 @@ label {
     color: #555;
 }
 
+<<<<<<< Updated upstream
 /* INPUTS E TEXTAREAS - Estilos de Entrada */
 input[type="text"], 
 input[type="email"],
+=======
+input[type="text"], 
+>>>>>>> Stashed changes
 input[type="password"], 
 textarea {
     padding: 10px;
@@ -71,6 +95,7 @@ textarea {
     border-radius: 4px;
     margin-bottom: 15px;
     font-size: 1em;
+<<<<<<< Updated upstream
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
@@ -87,6 +112,8 @@ textarea:focus {
 input[type="email"]:disabled {
     background-color: #ecf0f1;
     cursor: not-allowed;
+=======
+>>>>>>> Stashed changes
 }
 
 textarea {
@@ -94,13 +121,20 @@ textarea {
     height: 100px;
 }
 
+<<<<<<< Updated upstream
 /* --- ESTILO PARA O FEEDBACK VISUAL (Mensagens de Sucesso/Erro) --- */
 .form-feedback {
     padding: 12px;
+=======
+/* --- ESTILO PARA O FEEDBACK VISUAL --- */
+.form-feedback {
+    padding: 10px;
+>>>>>>> Stashed changes
     margin-bottom: 15px;
     border-radius: 4px;
     font-weight: bold;
     text-align: center;
+<<<<<<< Updated upstream
     display: none;
 }
 
@@ -121,10 +155,19 @@ textarea {
 
 
 /* FOTO DE PERFIL - Container e Estilo da Imagem */
+=======
+    /* As cores específicas serão aplicadas via JavaScript */
+}
+/* ----------------------------------- */
+
+
+/* FOTO DE PERFIL */
+>>>>>>> Stashed changes
 .profile-photo-container {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+<<<<<<< Updated upstream
     gap: 20px;
 }
 
@@ -156,10 +199,28 @@ textarea {
     background-color: #3498db;
     color: white;
     padding: 10px 15px;
+=======
+}
+
+.profile-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    border: 3px solid #422c50;
+}
+
+.photo-upload-label {
+    background-color: #422c50;
+    color: rgb(223, 221, 221);
+    padding: 8px 15px;
+>>>>>>> Stashed changes
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
     font-weight: normal;
+<<<<<<< Updated upstream
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -264,10 +325,58 @@ button:active {
         font-size: 1.2em;
     }
 
+=======
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.photo-upload-label:hover {
+    background-color: #57386a;
+}
+
+/* BOTÕES DE AÇÃO */
+.save-button, .logout-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.save-button {
+    background-color: #621897;
+    color: rgb(223, 221, 221);
+}
+
+.save-button:hover {
+    background-color: #77449c;
+}
+
+.logout-button {
+    background-color: #da6415;
+    color: rgb(223, 221, 221);
+    width: 100%;
+}
+
+.logout-button:hover {
+    background-color: #ca6d2f;
+}
+
+/* Responsividade Básica */
+@media (max-width: 500px) {
+    .settings-container {
+        padding: 20px 15px;
+    }
+>>>>>>> Stashed changes
     .profile-photo-container {
         flex-direction: column;
         align-items: flex-start;
     }
+<<<<<<< Updated upstream
 
     #current-photo {
         width: 80px;
@@ -314,5 +423,10 @@ button:active {
     button {
         padding: 10px 12px;
         font-size: 0.9em;
+=======
+    .profile-photo {
+        margin-right: 0;
+        margin-bottom: 10px;
+>>>>>>> Stashed changes
     }
 }
