@@ -35,8 +35,9 @@ document.addEventListener('click', (e) => {
 
 // Função para exibir o nome do usuário logado
 function exibirNomeUsuario() {
-    // Pegar o nome armazenado no localStorage após o login
+    // Pegar o nome e foto armazenados no localStorage após o login
     const userName = localStorage.getItem('userName');
+    const userPhoto = localStorage.getItem('userPhoto');
     
     // Atualizar header principal com saudação
     if (nomeUsuarioElement) {
@@ -56,10 +57,20 @@ function exibirNomeUsuario() {
         }
     }
     
-    // Atualizar inicial do nome na sidebar
-    if (userInitial && userName) {
-        const inicial = userName.charAt(0).toUpperCase();
-        userInitial.textContent = inicial;
+    // Atualizar inicial do nome na sidebar com foto se disponível
+    if (userInitial) {
+        if (userPhoto) {
+            // Se temos foto, usar como background-image
+            userInitial.style.backgroundImage = `url('${userPhoto}')`;
+            userInitial.style.backgroundSize = 'cover';
+            userInitial.style.backgroundPosition = 'center';
+            userInitial.textContent = ''; // limpar texto
+        } else if (userName) {
+            // Se temos nome mas sem foto, usar inicial
+            const inicial = userName.charAt(0).toUpperCase();
+            userInitial.textContent = inicial;
+            userInitial.style.backgroundImage = 'none';
+        }
     }
 }
 
