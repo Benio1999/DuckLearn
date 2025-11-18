@@ -81,8 +81,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             try {
+                // Usar a mesma chave que o login salva: 'userId'
                 const userId = localStorage.getItem('userId');
-                if (!userId) {
+                // Proteger contra valores inválidos que às vezes são gravados como strings
+                if (!userId || userId === 'undefined' || userId === 'null') {
                     exibirFeedback(feedbackProfile, 'Erro: ID do usuário não encontrado. Faça login novamente.', 'error');
                     return;
                 }
