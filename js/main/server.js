@@ -138,6 +138,11 @@ app.put('/api/users/:id', async (req, res) => {
         const { id } = req.params;
         const { name, email } = req.body;
         
+        // Validar se o ID é um ObjectId válido
+        if (!id || id === 'undefined' || id === 'null' || id.length !== 24) {
+            return res.status(400).json({ mensagem: "ID do usuário inválido" });
+        }
+        
         if (!name) {
             return res.status(400).json({ mensagem: "Nome é obrigatório" });
         }
@@ -154,6 +159,7 @@ app.put('/api/users/:id', async (req, res) => {
         
         res.json({ mensagem: "Perfil atualizado com sucesso", user: usuarioAtualizado });
     } catch (error) {
+        console.error('Erro ao atualizar perfil:', error);
         res.status(400).json({ mensagem: "Erro ao atualizar", erro: error.message });
     }
 });
@@ -163,6 +169,11 @@ app.put('/api/users/:id/password', async (req, res) => {
     try {
         const { id } = req.params;
         const { newPassword } = req.body;
+        
+        // Validar se o ID é um ObjectId válido
+        if (!id || id === 'undefined' || id === 'null' || id.length !== 24) {
+            return res.status(400).json({ mensagem: "ID do usuário inválido" });
+        }
         
         if (!newPassword || newPassword.length < 8) {
             return res.status(400).json({ mensagem: "Senha deve ter no mínimo 8 caracteres" });
@@ -178,6 +189,7 @@ app.put('/api/users/:id/password', async (req, res) => {
         
         res.json({ mensagem: "Senha atualizada com sucesso" });
     } catch (error) {
+        console.error('Erro ao atualizar senha:', error);
         res.status(400).json({ mensagem: "Erro ao atualizar senha", erro: error.message });
     }
 });

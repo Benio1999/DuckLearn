@@ -81,9 +81,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             try {
-                // Usar a mesma chave que o login salva: 'userId'
+                // Usar a mesma chave que o login salva: 'userId' (i minúsculo)
                 const userId = localStorage.getItem('userId');
-                // Proteger contra valores inválidos que às vezes são gravados como strings
+                // Proteger contra valores inválidos (strings 'undefined' ou 'null')
                 if (!userId || userId === 'undefined' || userId === 'null') {
                     exibirFeedback(feedbackProfile, 'Erro: ID do usuário não encontrado. Faça login novamente.', 'error');
                     return;
@@ -128,7 +128,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             try {
                 const userId = localStorage.getItem('userId');
-                if (!userId) {
+                // Proteger contra valores inválidos (strings 'undefined' ou 'null')
+                if (!userId || userId === 'undefined' || userId === 'null') {
                     exibirFeedback(feedbackPassword, 'Erro: ID do usuário não encontrado. Faça login novamente.', 'error');
                     return;
                 }
