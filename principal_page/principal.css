@@ -258,13 +258,13 @@ body {
 
 .hero {
     display: flex;
+    flex-direction: row-reverse; /* coloca a ilustração à esquerda do texto */
     justify-content: space-between;
     align-items: center;
     background: linear-gradient(135deg, #ff9800, #ffb84d);
     border-radius: 16px;
     padding: 3rem;
-    padding-left: 1.5rem;
-    /* reduzir espaço à esquerda para aproximar o texto */
+    padding-right: 1.5rem; /* ajustar espaçamento agora que a imagem ficou à esquerda */
     color: white;
     margin-bottom: 2rem;
     gap: 2rem;
