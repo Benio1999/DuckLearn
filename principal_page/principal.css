@@ -108,7 +108,8 @@ body {
     border-radius: 8px;
     font-weight: 700;
     color: #fff;
-    background-color: #ff9800; /* fallback */
+    background-color: #ff9800;
+    /* fallback */
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -262,7 +263,8 @@ body {
     background: linear-gradient(135deg, #ff9800, #ffb84d);
     border-radius: 16px;
     padding: 3rem;
-    padding-left: 1.5rem; /* reduzir espaço à esquerda para aproximar o texto */
+    padding-left: 1.5rem;
+    /* reduzir espaço à esquerda para aproximar o texto */
     color: white;
     margin-bottom: 2rem;
     gap: 2rem;
@@ -271,14 +273,13 @@ body {
 .hero .content {
     /* flex: 1 1 auto; */
     min-width: 0;
-    text-align: left; /* garantir alinhamento à esquerda no desktop */
-    max-width: 60%; /* limitar largura do bloco de texto para afastar a imagem */
-    padding-right: 1rem; /* garantir espaçamento entre texto e imagem */
+    text-align: left;
+    /* garantir alinhamento à esquerda no desktop */
+    max-width: 60%;
+    /* limitar largura do bloco de texto para afastar a imagem */
+    padding-right: 1rem;
+    /* garantir espaçamento entre texto e imagem */
 }
-
-/* .hero .illustration {
-    flex: 1 0 auto; /* manter a ilustração com tamanho fixo definido pela img 
-} */
 
 .hero .illustration {
     flex: 1;
@@ -313,7 +314,7 @@ body {
 
 /* ======== USUARIO HEADER ======== */
 .usuario-header {
-    background: linear-gradient(135deg, #ff9800, #ffb84d);
+    background: linear-gradient(90deg, rgba(65, 1, 121, 0.884), rgba(89, 0, 61, 0.906));
     color: white;
     padding: 1.5rem 2rem;
     border-radius: 12px;
@@ -367,7 +368,7 @@ body {
 }
 
 .card.destaque {
-    background: linear-gradient(135deg, #ff9800, #ffb84d);
+    background: linear-gradient(90deg, rgba(65, 1, 121, 0.884), rgba(89, 0, 61, 0.906));
     color: #fff;
     position: relative;
     display: flex;
@@ -381,8 +382,8 @@ body {
 
 .card.destaque .btn {
     display: inline-block;
-    background: #fff;
-    color: #ff9800;
+    background: #ffffff;
+    color: #000;
     padding: 0.6rem 1.2rem;
     border-radius: 8px;
     margin-top: 1rem;
@@ -393,10 +394,11 @@ body {
     cursor: pointer;
 }
 
-.card.destaque .btn:hover {
-    background: #ff9800;
-    color: #fff;
-}
+/* .card.destaque .btn:hover {
+    background: #f7f7f7;
+    color: #ffa723;
+    scale: 1.05;
+} */
 
 /* ======== RESPONSIVE ======== */
 
@@ -693,7 +695,7 @@ body {
     }
 
     .hero .illustration img {
-        width: 80px;
+        width: 80xpx;
     }
 
     .usuario-header {
