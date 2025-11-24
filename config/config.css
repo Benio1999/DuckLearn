@@ -30,7 +30,7 @@ h1 {
 }
 
 /* Cabeçalho do container com gradiente semelhante à página principal */
-.settings-container > h1 {
+.settings-container>h1 {
     background: linear-gradient(135deg, #ff9800, #ffb84d);
     color: #fff;
     padding: 1.25rem 1.5rem;
@@ -47,7 +47,7 @@ h1 {
     padding: 1rem;
     background: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
 .config-section h2 {
@@ -72,9 +72,9 @@ label {
 }
 
 /* INPUTS E TEXTAREAS - Estilos de Entrada */
-input[type="text"], 
+input[type="text"],
 input[type="email"],
-input[type="password"], 
+input[type="password"],
 textarea {
     padding: 10px;
     border: 1px solid #e6e6e6;
@@ -84,13 +84,13 @@ textarea {
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-input[type="text"]:focus, 
+input[type="text"]:focus,
 input[type="email"]:focus,
-input[type="password"]:focus, 
+input[type="password"]:focus,
 textarea:focus {
     outline: none;
-    border-color: rgba(255,152,0,0.9);
-    box-shadow: 0 6px 18px rgba(255,152,0,0.12);
+    border-color: rgba(255, 152, 0, 0.9);
+    box-shadow: 0 6px 18px rgba(255, 152, 0, 0.12);
 }
 
 /* Desabilita o input de email para não ser editado */
@@ -127,6 +127,7 @@ textarea {
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
+
 /* -------------------------------------------------------------------- */
 
 
@@ -148,12 +149,12 @@ textarea {
     height: 96px;
     border-radius: 12px;
     object-fit: cover;
-    border: 3px solid rgba(255,152,0,0.95);
+    border: 3px solid rgba(255, 152, 0, 0.95);
     transition: box-shadow 0.25s;
 }
 
 #current-photo:hover {
-    box-shadow: 0 8px 20px rgba(255,152,0,0.18);
+    box-shadow: 0 8px 20px rgba(255, 152, 0, 0.18);
 }
 
 .photo-upload-section {
@@ -263,7 +264,7 @@ button:active {
         border-radius: 8px;
     }
 
-    .settings-container > h1 {
+    .settings-container>h1 {
         font-size: 1.3rem;
         padding: 0.9rem 1rem;
         margin: -1rem 0 1rem 0;
@@ -288,9 +289,9 @@ button:active {
         height: 80px;
     }
 
-    input[type="text"], 
+    input[type="text"],
     input[type="email"],
-    input[type="password"], 
+    input[type="password"],
     textarea {
         font-size: 16px;
     }
@@ -331,52 +332,4 @@ button:active {
     }
 }
 
-/* ======== DARK THEME OVERRIDES ======== */
-.dark-theme body {
-    background-color: #0f1724;
-    color: #e6eef8;
-}
-
-.dark-theme .settings-container {
-    background: #0b1220;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-    color: #dce9f8;
-}
-
-.dark-theme .settings-container > h1 {
-    background: linear-gradient(135deg, #16232a, #22303a);
-    color: #fff;
-}
-
-.dark-theme .config-section {
-    background: #071218;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
-}
-
-.dark-theme label, .dark-theme .config-section h2 {
-    color: #dbeaf8;
-}
-
-.dark-theme input[type="text"],
-.dark-theme input[type="email"],
-.dark-theme input[type="password"],
-.dark-theme textarea {
-    background: #071722;
-    color: #e6eef8;
-    border: 1px solid #1f3340;
-}
-
-.dark-theme .photo-upload-label {
-    background: #ff9800;
-    color: #111;
-}
-
-.dark-theme .form-feedback.success { background-color: rgba(34,85,45,0.25); color:#bfe6c9; }
-.dark-theme .form-feedback.error { background-color: rgba(120,20,20,0.18); color:#f6c6c6; }
-
-.dark-theme .save-button { background: #ff9800; color: #111; }
-
-.dark-theme .logout-button, .dark-theme .back-button { box-shadow: none; }
-
-/* small transition */
-.dark-theme *, .dark-theme body, .dark-theme .settings-container { transition: background-color .2s ease,color .2s ease,box-shadow .2s ease;border-color .2s ease; }
+/* end of file */
