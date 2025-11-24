@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const name = localStorage.getItem('userName');
         const photo = localStorage.getItem('userPhoto');
         const email = localStorage.getItem('userEmail');
+        console.log(email)
 
         if (userNameInput && name) userNameInput.value = name;
         if (userEmailInput && email) {
@@ -51,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     carregarDadosUsuario();
+    
 
     // UPLOAD DE FOTO 
     if (photoUpload && currentPhoto) {
@@ -73,7 +75,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (feedbackProfile) feedbackProfile.style.display = 'none';
 
             const name = userNameInput ? userNameInput.value.trim() : '';
-            const email = userEmailInput ? userEmailInput.value.trim() : '';
+            const email = localStorage.getItem('userEmail');
+            
 
             if (!name) {
                 exibirFeedback(feedbackProfile, 'O nome não pode estar vazio.', 'error');
