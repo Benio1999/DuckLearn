@@ -45,12 +45,17 @@
     transition: 0.2s ease-in-out;
 }
 
+.dados-card:hover{
+    transform: scale(1.05);
+    transition: 0.2s ease-in-out;
+}
 .dados-card {
     background: #fff;
     padding: 25px;
     border-radius: 20px;
     width: 280px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: 0.2s ease-in-out;
 }
 
 .dados-card h3 {

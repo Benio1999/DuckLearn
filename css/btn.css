@@ -6,6 +6,7 @@
 .div-btn{
     gap: 9px;
     display: flex;
+    margin-right: 23px;
 }
 
 .btn-signup {
