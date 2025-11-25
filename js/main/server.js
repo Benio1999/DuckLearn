@@ -139,17 +139,24 @@ app.put('/api/users/:id', async (req, res) => {
         const { name, email } = req.body;
         
         // Validar se o ID é um ObjectId válido
-        if (!id || id === 'undefined' || id === 'null' || id.length !== 24) {
+        if (!id || id === 'undefined' || id === 'null' || !mongoose.Types.ObjectId.isValid(id)) {
             return res.status(400).json({ mensagem: "ID do usuário inválido" });
         }
-        
+
         if (!name) {
             return res.status(400).json({ mensagem: "Nome é obrigatório" });
         }
-        
+
+        // Construir objeto de atualização explicitamente (NUNCA atualizar senha aqui)
+        const update = {};
+        if (name) update.name = name;
+        if (email) update.email = email;
+
+        console.log('PUT /api/users/:id - id:', id, 'update:', update);
+
         const usuarioAtualizado = await User.findByIdAndUpdate(
             id,
-            { name, email },
+            update,
             { new: true, runValidators: true }
         );
         
@@ -171,14 +178,16 @@ app.put('/api/users/:id/password', async (req, res) => {
         const { newPassword } = req.body;
         
         // Validar se o ID é um ObjectId válido
-        if (!id || id === 'undefined' || id === 'null' || id.length !== 24) {
+        if (!id || id === 'undefined' || id === 'null' || !mongoose.Types.ObjectId.isValid(id)) {
             return res.status(400).json({ mensagem: "ID do usuário inválido" });
         }
-        
+
         if (!newPassword || newPassword.length < 8) {
             return res.status(400).json({ mensagem: "Senha deve ter no mínimo 8 caracteres" });
         }
-        
+
+        console.log('PUT /api/users/:id/password - id:', id);
+
         const usuario = await User.findById(id);
         if (!usuario) {
             return res.status(404).json({ mensagem: "Usuário Não Encontrado" });
