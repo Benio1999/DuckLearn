@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (feedbackProfile) feedbackProfile.style.display = 'none';
 
             const name = userNameInput ? userNameInput.value.trim() : '';
-            const email = userEmailInput === localStorage.getItem('userEmail');
+            const email = userEmailInput ? userEmailInput.value.trim() : '';
 
             if (!name) {
                 exibirFeedback(feedbackProfile, 'O nome não pode estar vazio.', 'error');
