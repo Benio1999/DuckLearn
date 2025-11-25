@@ -5,14 +5,25 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url('assets/imagem-login.png'); /* coloque sua imagem */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+
+}
+
+body::before{
+    content: "";
+    background-image: url('assets/imagem-login.png');
+    background-size: cover;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
 .overlay {
@@ -21,7 +32,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.45);
+    
 }
 
 .form-container {
@@ -33,11 +44,11 @@ body {
     padding-right: 36px;
     margin: 50px auto;
     border-radius: 20px;
-    background: rgba(0, 0, 0, 0.25);
+    background: #f8a830;
     /* Transparente escuro */
     backdrop-filter: blur(6px);
     /* deixa moderno */
-    color: white;
+
 }
 
 /* Garante que o feedback fique acima de tudo e use o espaço corretamente */
@@ -61,8 +72,7 @@ input {
     margin-bottom: 18px;
     border: none;
     border-radius: 12px;
-    background: #F5A544;
-    /* LARANJA */
+       
     color: #222;
     font-size: 15px;
 }
@@ -74,7 +84,7 @@ input::placeholder {
 button {
     width: 60%;
     padding: 12px;
-    background: #C168FF;
+    background: #f5a544;
     /* ROXO */
     border: none;
     border-radius: 30px;
@@ -90,7 +100,13 @@ button {
 button:hover {
     transform: scale(1.05);
 }
-input {
-
+input { 
     width: 100%;
+}
+
+.texto-label{
+    color:#2a2a2a;
+}
+h2{
+    color: #2a2a2a;
 }
