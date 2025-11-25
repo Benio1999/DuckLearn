@@ -2,6 +2,7 @@ const API_URL = 'http://localhost:3004';
 const sidebar = document.getElementById('sidebar');
 const btnCollapse = document.getElementById('btn-collapse');
 const nomeUsuarioElement = document.getElementById('nomeUsuario');
+const userPhotoHeader = document.getElementById('userPhotoHeader');
 const userNameSidebar = document.getElementById('userNameSidebar');
 const userInitial = document.getElementById('userInitial');
 
@@ -39,12 +40,22 @@ function exibirNomeUsuario() {
     const userName = localStorage.getItem('userName');
     const userPhoto = localStorage.getItem('userPhoto');
     
-    // Atualizar header principal com saudação
+    // Atualizar header principal com saudação e foto
     if (nomeUsuarioElement) {
         if (userName) {
             nomeUsuarioElement.textContent = `Bem-vindo, ${userName}! O que iremos aprender hoje?`;
         } else {
             nomeUsuarioElement.textContent = 'Bem-vindo! Faça login para continuar.';
+        }
+    }
+    
+    // Exibir foto no usuario-header se disponível
+    if (userPhotoHeader) {
+        if (userPhoto) {
+            userPhotoHeader.src = userPhoto;
+            userPhotoHeader.style.display = 'block';
+        } else {
+            userPhotoHeader.style.display = 'none';
         }
     }
     

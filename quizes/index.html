@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Metadados básicos -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz Básico</title>
+
+  <!-- Importa o CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Cabeçalho simples -->
+  <header class="header">
+    <h1>Quiz Básico</h1>
+    <p class="muted">Responda perguntas e acompanhe sua pontuação.</p>
+  </header>
+
+  <!-- Container principal do quiz -->
+  <main class="container">
+    <!-- Área onde a pergunta e opções serão renderizadas -->
+    <section id="quiz" class="quiz"></section>
+
+    <!-- Barra de status: pontuação e progresso -->
+    <section class="status">
+      <span id="score" class="badge">Pontuação: 0</span>
+      <span id="progress" class="badge">Pergunta: 0/0</span>
+    </section>
+
+    <!-- Controles: reiniciar o quiz -->
+    <section class="controls">
+      <button id="restartBtn" class="btn">Reiniciar quiz</button>
+    </section>
+  </main>
+
+  <!-- Importa o JavaScript no final para carregar após o HTML -->
+  <script src="quiz.js"></script>
+</body>
+</html>
