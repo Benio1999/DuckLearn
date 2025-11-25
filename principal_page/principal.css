@@ -79,14 +79,14 @@ body {
     gap: 0.6rem;
 }
 
-.pro-sidebar-logo div {
-    background: #ff9800;
+/* .pro-sidebar-logo div {
+    background: #ffffff;
     color: #fff;
     font-weight: 700;
     border-radius: 8px;
     padding: 8px 12px;
     font-size: 1.2rem;
-}
+} */
 
 .pro-sidebar-logo div:first-child {
     width: 40px;
@@ -136,7 +136,7 @@ body {
 .user-name-sidebar {
     margin: 0;
     font-size: 0.85rem;
-    color: #ddd;
+    color: #ffffff;
     font-weight: 400;
 }
 
