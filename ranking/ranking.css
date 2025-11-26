@@ -234,7 +234,8 @@ body {
 }
 
 .level {
-    background: #667eea;
+    /* background: #46197e; */
+    background: linear-gradient(#5256bb, #46197e);
     color: white;
     padding: 5px 12px;
     border-radius: 20px;
