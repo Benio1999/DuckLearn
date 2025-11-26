@@ -87,5 +87,5 @@ function exibirPerfil() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', exibirPerfil);
-window.addEventListener('storage', exibirPerfil);
+// Atualizar nome de usuário quando houver mudanças no localStorage
+window.addEventListener('storage', exibirNomeUsuario);

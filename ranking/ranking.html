@@ -1,11 +1,216 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Ranking - Duck Learn</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="ranking.css">
 </head>
+
 <body>
-    
+    <div class="ranking-container">
+        <header class="ranking-header">
+            <a href="../principal_page/principal.html" class="btn-voltar">
+                <i class="ri-arrow-left-line"></i> Voltar
+            </a>
+            <div class="header-content">
+                <h1><i class="ri-trophy-fill"></i> Ranking Global</h1>
+                <h3>Veja os melhores alunos do Duck Learn</h3>
+            </div>
+            <div class="filter-section">
+                <select id="filterMateria" class="filter-select">
+                    <option value="todos">Todas as Matérias</option>
+                    <option value="matematica">Matemática</option>
+                    <option value="portugues">Português</option>
+                    <option value="historia">História</option>
+                    <option value="ciencias">Ciências</option>
+                    <option value="biologia">Biologia</option>
+                </select>
+                <select id="filterPeriodo" class="filter-select">
+                    <option value="geral">Geral</option>
+                    <option value="mes">Este Mês</option>
+                    <option value="semana">Esta Semana</option>
+                    <option value="dia">Hoje</option>
+                </select>
+            </div>
+        </header>
+
+        <section class="ranking-list">
+            <div class="ranking-item top-1">
+                <div class="rank-position">
+                    <span class="medal gold">🥇</span>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">L</div>
+                    <div class="user-details">
+                        <h3>Lucas Martins</h3>
+                        <p>2º ano - 1.245 pontos</p>
+                    </div>
+                </div>
+                <div class="user-stats">
+                    <span class="points">1.245 pts</span>
+                    <span class="level">Nível 12</span>
+                </div>
+            </div>
+
+            <div class="ranking-item top-2">
+                <div class="rank-position">
+                    <span class="medal silver">🥈</span>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">M</div>
+                    <div class="user-details">
+                        <h3>Marina Silva</h3>
+                        <p>9º ano - 1.102 pontos</p>
+                    </div>
+                </div>
+                <div class="user-stats">
+                    <span class="points">1.102 pts</span>
+                    <span class="level">Nível 11</span>
+                </div>
+            </div>
+
+            <div class="ranking-item top-3">
+                <div class="rank-position">
+                    <span class="medal bronze">🥉</span>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">P</div>
+                    <div class="user-details">
+                        <h3>Pedro Henriques</h3>
+                        <p>3º ano - 985 pontos</p>
+                    </div>
+                </div>
+                <div class="user-stats">
+                    <span class="points">985 pts</span>
+                    <span class="level">Nível 10</span>
+                </div>
+            </div>
+
+            <div class="ranking-item">
+                <div class="rank-position">
+                    <span class="position">4º</span>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">J</div>
+                    <div class="user-details">
+                        <h3>João Santos</h3>
+                        <p>1º ano - 856 pontos</p>
+                    </div>
+                </div>
+                <div class="user-stats">
+                    <span class="points">856 pts</span>
+                    <span class="level">Nível 9</span>
+                </div>
+            </div>
+
+            <div class="ranking-item">
+                <div class="rank-position">
+                    <span class="position">5º</span>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">A</div>
+                    <div class="user-details">
+                        <h3>Ana Costa</h3>
+                        <p>2º ano - 742 pontos</p>
+                    </div>
+                </div>
+                <div class="user-stats">
+                    <span class="points">742 pts</span>
+                    <span class="level">Nível 8</span>
+                </div>
+            </div>
+
+            <div class="ranking-item">
+                <div class="rank-position">
+                    <span class="position">6º</span>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">R</div>
+                    <div class="user-details">
+                        <h3>Rafael Oliveira</h3>
+                        <p>9º ano - 598 pontos</p>
+                    </div>
+                </div>
+                <div class="user-stats">
+                    <span class="points">598 pts</span>
+                    <span class="level">Nível 7</span>
+                </div>
+            </div>
+
+            <div class="ranking-item">
+                <div class="rank-position">
+                    <span class="position">7º</span>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">C</div>
+                    <div class="user-details">
+                        <h3>Carla Pereira</h3>
+                        <p>1º ano - 512 pontos</p>
+                    </div>
+                </div>
+                <div class="user-stats">
+                    <span class="points">512 pts</span>
+                    <span class="level">Nível 6</span>
+                </div>
+            </div>
+
+            <div class="ranking-item">
+                <div class="rank-position">
+                    <span class="position">8º</span>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">F</div>
+                    <div class="user-details">
+                        <h3>Felipe Gomes</h3>
+                        <p>3º ano - 421 pontos</p>
+                    </div>
+                </div>
+                <div class="user-stats">
+                    <span class="points">421 pts</span>
+                    <span class="level">Nível 5</span>
+                </div>
+            </div>
+
+            <div class="ranking-item">
+                <div class="rank-position">
+                    <span class="position">9º</span>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">S</div>
+                    <div class="user-details">
+                        <h3>Sofia Mendes</h3>
+                        <p>2º ano - 387 pontos</p>
+                    </div>
+                </div>
+                <div class="user-stats">
+                    <span class="points">387 pts</span>
+                    <span class="level">Nível 4</span>
+                </div>
+            </div>
+
+            <div class="ranking-item">
+                <div class="rank-position">
+                    <span class="position">10º</span>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">B</div>
+                    <div class="user-details">
+                        <h3>Bruno Alves</h3>
+                        <p>9º ano - 256 pontos</p>
+                    </div>
+                </div>
+                <div class="user-stats">
+                    <span class="points">256 pts</span>
+                    <span class="level">Nível 3</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="ranking.js"></script>
 </body>
+
 </html>
