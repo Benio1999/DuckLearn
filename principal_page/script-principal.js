@@ -8,7 +8,7 @@ const userInitial = document.getElementById('userInitial');
 
 // Função para verificar se é mobile
 function isMobile() {
-    return window.innerWidth <= 768;
+    return window.innerWidth <= 666;
 }
 
 // Abre e fecha o menu lateral

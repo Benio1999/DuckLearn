@@ -20,7 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const confirmPassword = document.getElementById('confirm-password');
     const feedbackPassword = document.getElementById('password-feedback');
 
+    
     const logoutButton = document.querySelector('.logout-button');
+    const returnButton = document.querySelector('.return-button');
 
     //FEEDBACK
     function exibirFeedback(elemento, mensagem, tipo) {
@@ -166,5 +168,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
+    //RETORNAR Á PAGINA PRINCIPAL
+        if (returnButton){
+        returnButton.addEventListener('click', function() {
+            window.location.href = '../principal_page/principal.html';
+        });
+    }
 });
