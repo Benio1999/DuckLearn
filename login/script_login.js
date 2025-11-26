@@ -2,6 +2,8 @@ const API_URL = 'http://localhost:3004';
 
 const formLogin = document.querySelector('#formLogin');
 
+const voltar = document.querySelector('.btn-voltar')
+
 // Elementos de feedback nas páginas de formersssss
 const feedbackLogin = document.querySelector('#login-feedback');
 
@@ -88,3 +90,9 @@ function exibirFeedback(elemento, mensagem, tipo) {
             exibirFeedback(feedbackLogin, 'Erro de conexão.', 'error');
         }
     });
+
+   if (voltar) {
+    voltar.addEventListener('click', function() {
+        window.location.href = '../index.html';
+    });
+}
