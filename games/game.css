@@ -1,0 +1,403 @@
+/* Variáveis de Cores para Consistência */
+:root {
+    --primary-orange: #FF8C00; /* Laranja da sua página */
+    --primary-purple: #6A1B9A; /* Roxo/Vinho da sua página */
+    --secondary-orange: #FFA726; /* Um laranja um pouco mais claro */
+    --secondary-purple: #8E24AA; /* Um roxo um pouco mais claro */
+    --text-dark: #333;
+    --text-light: #f4f4f4;
+    --background-light: #f0f2f5; /* Fundo claro para o conteúdo */
+    --card-background: #ffffff;
+    --border-color: #ddd;
+    --gradient-orange-purple: linear-gradient(135deg, var(--primary-orange), var(--primary-purple));
+}
+
+/* Base Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-purple);
+}
+
+a:hover {
+    color: var(--primary-orange);
+}
+
+/* Layout Principal */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar (Adaptado da sua imagem) */
+.sidebar {
+    width: 250px; /* Largura padrão */
+    background: var(--gradient-orange-purple); /* Fundo com gradiente */
+    color: var(--text-light);
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease;
+}
+
+.sidebar.minimized {
+    width: 80px; /* Largura minimizada */
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.sidebar-header .logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Se o logo for redondo */
+}
+
+.toggle-sidebar {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.user-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--text-light);
+    margin-bottom: 10px;
+}
+
+.username {
+    display: block;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.user-progress-bar {
+    background-color: rgba(255,255,255,0.2);
+    height: 8px;
+    border-radius: 4px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.user-progress-bar .progress-fill {
+    height: 100%;
+    background-color: var(--secondary-orange);
+    border-radius: 4px;
+}
+
+.main-menu ul {
+    list-style: none;
+}
+
+.main-menu ul li {
+    margin-bottom: 10px;
+}
+
+.main-menu ul li a {
+    color: var(--text-light);
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.main-menu ul li a:hover,
+.main-menu ul li.active a {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.main-menu ul li a i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.sidebar.minimized .main-menu ul li a span {
+    display: none; /* Esconde o texto quando minimizado */
+}
+
+.sidebar.minimized .main-menu ul li a i {
+    margin-right: 0;
+}
+
+.sidebar-footer {
+    margin-top: auto; /* Empurra para o final da sidebar */
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+}
+
+/* Área de Conteúdo Principal */
+.content-area {
+    flex-grow: 1;
+    padding: 30px;
+    transition: margin-left 0.3s ease;
+}
+
+.content-area.expanded {
+    margin-left: -170px; /* Compensar a sidebar minimizada */
+}
+
+
+.content-header {
+    background: var(--card-background);
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.content-header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    color: var(--primary-purple);
+    margin-bottom: 10px;
+}
+
+.content-header p {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: flex;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px 0 0 8px;
+    font-size: 1rem;
+}
+
+.search-bar button {
+    background-color: var(--primary-orange);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: var(--secondary-orange);
+}
+
+/* Categorias de Jogos */
+.game-categories {
+    margin-bottom: 30px;
+}
+
+.game-categories h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: var(--primary-purple);
+    margin-bottom: 15px;
+}
+
+.category-list {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+    gap: 10px;
+}
+
+.category-pill {
+    background-color: var(--card-background);
+    color: var(--text-dark);
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.category-pill:hover {
+    background-color: var(--primary-orange);
+    color: var(--text-light);
+    border-color: var(--primary-orange);
+}
+
+.category-pill.active {
+    background-color: var(--primary-purple);
+    color: var(--text-light);
+    border-color: var(--primary-purple);
+    font-weight: 600;
+}
+
+/* Grid de Jogos (Cards) */
+.game-grid h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: var(--primary-purple);
+    margin-bottom: 15px;
+}
+
+.game-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Layout responsivo */
+    gap: 25px;
+}
+
+.game-card {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    overflow: hidden; /* Garante que a imagem não vaze */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.game-thumbnail {
+    width: 100%;
+    height: 180px; /* Altura fixa para as miniaturas */
+    object-fit: cover; /* Recorta a imagem para preencher */
+    display: block;
+}
+
+.game-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permite que o info preencha o espaço restante */
+}
+
+.game-info h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    color: var(--primary-purple);
+    margin-bottom: 8px;
+}
+
+.game-info p {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    flex-grow: 1; /* Faz o parágrafo ocupar o espaço */
+}
+
+.game-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.game-level i {
+    color: gold; /* Estrelas de nível */
+    margin-right: 5px;
+}
+
+.game-category-tag {
+    background-color: #e0e0e0;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.play-button {
+    display: block;
+    width: 100%;
+    background-color: var(--primary-orange);
+    color: var(--text-light);
+    text-align: center;
+    padding: 12px 0;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.play-button:hover {
+    background-color: var(--secondary-orange);
+}
+
+.play-button i {
+    margin-left: 8px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80px; /* Sidebar minimizada por padrão em telas menores */
+        padding: 15px;
+    }
+    .sidebar .username, .sidebar .main-menu ul li a span, .sidebar .user-progress-bar {
+        display: none;
+    }
+    .sidebar.minimized .toggle-sidebar {
+        display: block;
+    }
+    .content-area {
+        margin-left: 80px; /* Ajuste para a sidebar minimizada */
+        padding: 20px;
+    }
+    .content-header h1 {
+        font-size: 1.8rem;
+    }
+    .game-cards-container {
+        grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+    }
+}
+
+@media (max-width: 480px) {
+    .content-area {
+        padding: 15px;
+    }
+    .content-header {
+        padding: 20px;
+    }
+    .search-bar {
+        flex-direction: column;
+    }
+    .search-bar input {
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+    .search-bar button {
+        border-radius: 8px;
+        width: 100%;
+    }
+    .category-list {
+        justify-content: center;
+    }
+}
