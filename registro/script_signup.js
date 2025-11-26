@@ -7,6 +7,8 @@ const inscrever_se = document.querySelector('.btn-modal');
 const formInscricao = document.querySelector('#formInscricao');
 const feedbackInscricao = document.querySelector('#inscricao-feedback');
 
+const voltar = document.querySelector('.btn-voltar');
+
 /**
  * Exibe uma mensagem de feedback na tela com cores de sucesso ou erro.
  * @param {HTMLElement} elemento - O elemento DIV onde a mensagem será exibida.
@@ -31,6 +33,11 @@ function exibirFeedback(elemento, mensagem, tipo) {
     }
 }
 
+if (voltar) {
+    voltar.addEventListener('click', function() {
+        window.location.href = '../index.html';
+    });
+}
 
 
 
@@ -125,4 +132,4 @@ formInscricao.addEventListener('submit', async function (event) {
     }
 });
 
-// ================================================================
+
