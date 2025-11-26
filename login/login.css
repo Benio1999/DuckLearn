@@ -80,3 +80,111 @@ button {
 button:hover {
     transform: scale(1.05);
 }
+
+
+nav {
+    display: flex;
+    gap: 12px;
+}
+
+nav button {
+    border: none;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+
+.div-button{
+    gap: 9px;
+    display: flex;
+    margin-right: 23px;
+}
+
+.btn-voltar {
+    background-color: #a06afd;
+    color: #fff;
+    width: 100px;
+
+    
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 9px;
+}
+
+.logo img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    margin-top: 21px;
+    object-fit: cover;
+} 
+.logo img:hover{
+    transform:scale(1.1);
+    transition: 0.3s;
+}
+
+.logo h2 {
+    font-weight: 220;
+    font-size: 18px;
+    line-height: 1.1;
+    color: #f7f7f7;
+}
+
+header {
+    position: sticky;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(65, 1, 121, 0.884), rgba(89, 0, 61, 0.906));
+    min-height: 70px;
+    height: auto;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    top: 0;
+}
+
+/* Responsividade para Tablet */
+@media (max-width: 768px) {
+    nav {
+        width: 100%;
+        justify-content: center;
+    }
+
+    nav button {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+}
+
+/* Responsividade para Mobile */
+@media (max-width: 480px) {
+    nav {
+        width: 100%;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    nav button {
+        padding: 8px 12px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+}
