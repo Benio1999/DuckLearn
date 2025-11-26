@@ -1,0 +1,109 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f9; /* Fundo claro */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ESTILO DO CABEÇALHO */
+.main-header {
+    background-color: #bb00ff; /* Azul primário */
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main-header h1 {
+    margin-bottom: 10px;
+    font-size: 2.2em;
+}
+
+.main-header p {
+    font-size: 1.1em;
+}
+
+/* CONTAINER DOS CURSOS (USA FLEXBOX) */
+.course-container {
+    display: flex;
+    justify-content: center; /* Centraliza os cards */
+    flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha em telas menores */
+    padding: 40px 20px;
+    gap: 30px; /* Espaço entre os cartões */
+}
+
+/* ESTILO DOS CARTÕES INDIVIDUAIS */
+.course-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%; /* Largura total em telas pequenas */
+    max-width: 350px; /* Limita a largura em telas maiores */
+    text-align: center;
+    transition: transform 0.3s ease; /* Efeito de transição */
+}
+
+.course-card:hover {
+    transform: translateY(-5px); /* Efeito de levantar no hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.course-title {
+    color: #8304aa;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.course-description {
+    margin-bottom: 25px;
+    color: #666;
+}
+
+/* ESTILO DOS BOTÕES */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn.primary {
+    background-color: #ffc814;
+    color: white;
+    border: 2px solid #ab7a06;
+}
+
+.btn.primary:hover {
+    background-color: #c60dff;
+    border-color: #4a016c;
+}
+
+.btn.secondary {
+    background-color: #ffc814; /* Verde para dar destaque */
+    color: white;
+    border: 2px solid #ab7a06;
+}
+
+.btn.secondary:hover {
+    background-color: #c60dff;
+    border-color: #4a016c;
+}
+
+/* ESTILO DO RODAPÉ */
+.main-footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9em;
+}
