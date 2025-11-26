@@ -6,7 +6,8 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(90deg, rgba(65, 1, 121, 0.884), rgba(89, 0, 61, 0.906));
+    /* background: linear-gradient(135deg, #2540ba 0%, #764ba2 100%); */
     min-height: 100vh;
     padding: 20px;
 }
@@ -22,10 +23,34 @@ body {
 
 /* Header */
 .ranking-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: linear-gradient(135deg, #ea8d01, #f4bf6f);
+    color: purple;
     padding: 40px 30px;
     text-align: center;
+    position: relative;
+}
+
+.btn-voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: purple;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    border: 2px solid purple;
+}
+
+.btn-voltar:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateX(-5px);
 }
 
 .header-content h1 {
@@ -53,10 +78,10 @@ body {
 
 .filter-select {
     padding: 10px 15px;
-    border: 2px solid white;
+    border: 2px solid purple;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.2);
-    color: white;
+    color: purple;
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -224,7 +249,7 @@ body {
 .points {
     font-size: 1.3rem;
     font-weight: bold;
-    color: #667eea;
+    color: #7c10ba;
 }
 
 .ranking-item.top-1 .points,
