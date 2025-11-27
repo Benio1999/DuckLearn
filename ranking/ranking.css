@@ -24,7 +24,7 @@ body {
 /* Header */
 .ranking-header {
     background: linear-gradient(135deg, #ea8d01, #f4bf6f);
-    color: purple;
+    color: #ffffff;
     padding: 40px 30px;
     text-align: center;
     position: relative;
@@ -38,13 +38,13 @@ body {
     align-items: center;
     gap: 8px;
     background: rgba(255, 255, 255, 0.2);
-    color: purple;
+    color: #ffffff;
     text-decoration: none;
     padding: 10px 15px;
     border-radius: 8px;
     transition: all 0.3s ease;
     font-size: 1rem;
-    border: 2px solid purple;
+    border: 2px solid #ffffff;
 }
 
 .btn-voltar:hover {
@@ -78,10 +78,10 @@ body {
 
 .filter-select {
     padding: 10px 15px;
-    border: 2px solid purple;
+    border: 2px solid #ffffff;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.2);
-    color: purple;
+    color: #ffffff;
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -122,12 +122,12 @@ body {
 
 /* Top 3 Items */
 .ranking-item.top-1 {
-    background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+    background: linear-gradient(135deg, gold 0%, #716021 100%);
     border-left-color: #ffd700;
 }
 
 .ranking-item.top-1:hover {
-    background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+    /* background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%); */
     box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
 }
 
