@@ -1,16 +1,12 @@
 /*******************************************************
- * Quiz Básico em JavaScript
- * - Mantém um banco de perguntas
- * - Renderiza pergunta atual e opções
- * - Verifica resposta, atualiza pontuação e progresso
- * - Permite reiniciar
+ * Quiz Gamificado do Duck Learn
+ * - Banco de perguntas com diferentes matérias
+ * - Renderização com feedback visual
+ * - Sistema de pontuação e progresso
+ * - Barra de progresso animada
  *******************************************************/
 
-/* -----------------------------
-   1) Banco de perguntas
-   - Cada item tem: question, options, answer
-   - answer é o índice da opção correta
-------------------------------*/
+/* Banco de perguntas */
 const questions = [
   {
     question: "Qual é a capital do Brasil?",
@@ -36,31 +32,36 @@ const questions = [
       "Hyper Transfer Media Link"
     ],
     answer: 0
+  },
+  {
+    question: "Qual é o maior planeta do sistema solar?",
+    options: ["Saturno", "Marte", "Júpiter", "Netuno"],
+    answer: 2
+  },
+  {
+    question: "Qual é a fórmula da fotossíntese? (simplificada)",
+    options: [
+      "CO2 + H2O → Glicose + O2",
+      "Glicose + O2 → CO2 + H2O",
+      "O2 + H2O → Glicose + CO2",
+      "CO2 → Glicose + O2"
+    ],
+    answer: 0
   }
 ];
 
-/* -----------------------------
-   2) Estado do quiz
-   - currentIndex: qual pergunta está ativa
-   - score: pontuação acumulada
-------------------------------*/
+/* Estado do quiz */
 let currentIndex = 0;
 let score = 0;
 
-/* -----------------------------
-   3) Referências ao DOM
-------------------------------*/
+/* Referências ao DOM */
 const quizEl = document.getElementById("quiz");
 const scoreEl = document.getElementById("score");
 const progressEl = document.getElementById("progress");
+const progressBar = document.getElementById("progressBar");
 const restartBtn = document.getElementById("restartBtn");
 
-/* -----------------------------
-   4) Inicialização
-   - Configura progresso inicial
-   - Renderiza a primeira pergunta
-   - Liga o botão de reinício
-------------------------------*/
+/* Inicialização */
 function init() {
   updateProgress();
   renderQuestion();
@@ -68,22 +69,14 @@ function init() {
 }
 init();
 
-/* -----------------------------
-   5) Renderização da pergunta
-   - Limpa o container
-   - Cria título, opções e eventos de clique
-------------------------------*/
+/* Renderização da pergunta */
 function renderQuestion() {
-  // Se terminou, mostra resultado final
   if (currentIndex >= questions.length) {
     showFinal();
     return;
   }
 
-  // Limpa a área
   quizEl.innerHTML = "";
-
-  // Pega pergunta atual
   const q = questions[currentIndex];
 
   // Título da pergunta
@@ -101,11 +94,11 @@ function renderQuestion() {
     btn.className = "btn";
     btn.textContent = opt;
 
-    // Ao clicar, verifica resposta e faz feedback visual
+    // Ao clicar, verifica resposta
     btn.addEventListener("click", () => {
       const isCorrect = idx === q.answer;
 
-      // Bloqueia novas respostas (desabilita todos os botões)
+      // Bloqueia novas respostas
       Array.from(optionsEl.children).forEach(b => (b.disabled = true));
 
       // Marca corretos e errados
@@ -120,7 +113,7 @@ function renderQuestion() {
         scoreEl.textContent = `Pontuação: ${score}`;
       }
 
-      // Avança para próxima pergunta depois de um pequeno delay
+      // Avança para próxima pergunta
       setTimeout(() => {
         currentIndex++;
         updateProgress();
@@ -134,40 +127,57 @@ function renderQuestion() {
   quizEl.appendChild(optionsEl);
 }
 
-/* -----------------------------
-   6) Progresso e pontuação
-   - Atualiza os badges de status
-------------------------------*/
+/* Atualiza progresso e barra */
 function updateProgress() {
+  const percentual = (currentIndex / questions.length) * 100;
+  progressBar.style.width = percentual + "%";
   progressEl.textContent = `Pergunta: ${Math.min(currentIndex + 1, questions.length)}/${questions.length}`;
   scoreEl.textContent = `Pontuação: ${score}`;
 }
 
-/* -----------------------------
-   7) Tela final
-   - Mostra pontuação total e opção de reiniciar
-------------------------------*/
+/* Tela final */
 function showFinal() {
   quizEl.innerHTML = "";
 
   const title = document.createElement("h2");
-  title.textContent = "Fim do quiz!";
+  title.textContent = "🎉 Parabéns! Quiz Concluído!";
   quizEl.appendChild(title);
 
+  const percentual = Math.round((score / questions.length) * 100);
   const result = document.createElement("p");
-  result.textContent = `Você acertou ${score} de ${questions.length} perguntas.`;
+  result.textContent = `Você acertou ${score} de ${questions.length} perguntas (${percentual}%)`;
+  result.style.fontSize = "1.2rem";
+  result.style.fontWeight = "600";
+  result.style.color = "#410179";
   quizEl.appendChild(result);
 
+  // Mensagem motivacional
+  const message = document.createElement("p");
+  let motivacao = "";
+  if (percentual >= 80) {
+    motivacao = "🏆 Excelente desempenho! Você é um mestre!";
+  } else if (percentual >= 60) {
+    motivacao = "👏 Ótimo trabalho! Continue praticando!";
+  } else if (percentual >= 40) {
+    motivacao = "💪 Bom começo! Pratique mais para melhorar!";
+  } else {
+    motivacao = "📚 Continue estudando, você vai conseguir!";
+  }
+  message.textContent = motivacao;
+  message.style.fontSize = "1.1rem";
+  message.style.marginTop = "1rem";
+  quizEl.appendChild(message);
+
   const tip = document.createElement("p");
-  tip.className = "muted";
-  tip.textContent = "Clique em 'Reiniciar quiz' para tentar novamente.";
+  tip.style.color = "#666";
+  tip.style.marginTop = "1.5rem";
+  tip.textContent = "Clique em 'Reiniciar Quiz' para tentar novamente.";
   quizEl.appendChild(tip);
+
+  progressBar.style.width = "100%";
 }
 
-/* -----------------------------
-   8) Reinício do quiz
-   - Zera estado e re-renderiza
-------------------------------*/
+/* Reinício do quiz */
 function restart() {
   currentIndex = 0;
   score = 0;

@@ -4,34 +4,48 @@
   <!-- Metadados básicos -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Quiz Básico</title>
-
+  <title>Quiz - Duck Learn</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <!-- Importa o CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Cabeçalho simples -->
-  <header class="header">
-    <h1>Quiz Básico</h1>
-    <p class="muted">Responda perguntas e acompanhe sua pontuação.</p>
+  <!-- Cabeçalho -->
+  <header class="header-quiz">
+    <div class="header-content">
+      <a href="../index.html" class="logo-link">
+        <span class="logo-text">DUCK LEARN</span>
+      </a>
+      <h1>Quiz do Conhecimento</h1>
+    </div>
   </header>
 
   <!-- Container principal do quiz -->
-  <main class="container">
+  <main class="main-quiz">
     <!-- Área onde a pergunta e opções serão renderizadas -->
-    <section id="quiz" class="quiz"></section>
+    <section id="quiz" class="quiz-card"></section>
 
     <!-- Barra de status: pontuação e progresso -->
-    <section class="status">
-      <span id="score" class="badge">Pontuação: 0</span>
-      <span id="progress" class="badge">Pergunta: 0/0</span>
+    <section class="status-bar">
+      <div class="progress-info">
+        <span id="progress" class="badge badge-primary">Pergunta: 0/0</span>
+        <span id="score" class="badge badge-secondary">Pontuação: 0</span>
+      </div>
+      <div class="progress-track">
+        <div id="progressBar" class="progress-fill"></div>
+      </div>
     </section>
 
     <!-- Controles: reiniciar o quiz -->
     <section class="controls">
-      <button id="restartBtn" class="btn">Reiniciar quiz</button>
+      <button id="restartBtn" class="btn-restart">🔄 Reiniciar Quiz</button>
     </section>
   </main>
+
+  <!-- Rodapé -->
+  <footer class="footer-quiz">
+    <p>&copy; 2025 Duck Learn - Aprenda se divertindo! 🦆</p>
+  </footer>
 
   <!-- Importa o JavaScript no final para carregar após o HTML -->
   <script src="quiz.js"></script>
