@@ -87,5 +87,6 @@ function exibirPerfil() {
     }
 }
 
-// Atualizar nome de usuário quando houver mudanças no localStorage
-window.addEventListener('storage', exibirNomeUsuario);
+// Chamar ao carregar e quando o localStorage mudar
+document.addEventListener('DOMContentLoaded', exibirPerfil);
+window.addEventListener('storage', exibirPerfil);
