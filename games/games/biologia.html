@@ -1,15 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Jogos de Biologia - Duck Learn</title>
+    <link rel="stylesheet" href="biologia.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <iframe style="max-width:100%" src="https://wordwall.net/pt/embed/26ea6ffeda03452abde8c15957e5877f?themeId=41&templateId=76&fontStackId=0" width="500" height="380" frameborder="0" allowfullscreen></iframe>
+    <!-- Header -->
+    <header class="bio-header">
+        <a href="../game.html" class="bio-back-btn">
+            <i class="fas fa-arrow-left"></i>
+            <span>Voltar</span>
+        </a>
+        <h1>Jogos de Biologia</h1>
+    </header>
 
-    <iframe style="max-width:100%" src="https://wordwall.net/pt/embed/b1190e9f25204ef4b635e5c5878d1409?themeId=1&templateId=5&fontStackId=0" width="500" height="380" frameborder="0" allowfullscreen></iframe>
+    <!-- Conteúdo Principal -->
+    <main class="bio-container">
+        <!-- Seção Intro -->
+        <section class="bio-intro">
+            <h2>Aprenda Biologia Jogando!</h2>
+            <p>Divirta-se enquanto aprende conceitos importantes de biologia através de jogos interativos</p>
+        </section>
 
-    <iframe style="max-width:100%" src="https://wordwall.net/pt/embed/5dd232dbc44344029f3c2ef2930b73af?themeId=1&templateId=3&fontStackId=0" width="500" height="380" frameborder="0" allowfullscreen></iframe>
+        <!-- Jogos -->
+        <section class="bio-games">
+            <div class="game-item">
+                <div class="game-header-item">
+                    <h3>🧬 Jogo 1 - Quiz de Biologia</h3>
+                    <span class="game-badge">Médio</span>
+                </div>
+                <iframe src="https://wordwall.net/pt/embed/26ea6ffeda03452abde8c15957e5877f?themeId=41&templateId=76&fontStackId=0" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="game-item">
+                <div class="game-header-item">
+                    <h3>🔬 Jogo 2 - Desafio Biológico</h3>
+                    <span class="game-badge easy">Fácil</span>
+                </div>
+                <iframe src="https://wordwall.net/pt/embed/b1190e9f25204ef4b635e5c5878d1409?themeId=1&templateId=5&fontStackId=0" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="game-item">
+                <div class="game-header-item">
+                    <h3>🧪 Jogo 3 - Descoberta Científica</h3>
+                    <span class="game-badge hard">Difícil</span>
+                </div>
+                <iframe src="https://wordwall.net/pt/embed/5dd232dbc44344029f3c2ef2930b73af?themeId=1&templateId=3&fontStackId=0" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bio-footer">
+        <p>&copy; 2025 Duck Learn - Aprenda Jogando!</p>
+    </footer>
 </body>
 </html>
