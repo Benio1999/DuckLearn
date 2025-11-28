@@ -4,10 +4,28 @@ const btnCollapse = document.getElementById('btn-collapse');
 const nomeUsuarioElement = document.getElementById('nomeUsuario');
 const userNameSidebar = document.getElementById('userNameSidebar');
 const userInitial = document.getElementById('userInitial');
+const sidebarHeader = document.querySelector('.sidebar-header');
 
-// Função para verificar se é mobile
 function isMobile() {
     return window.innerWidth <= 768;
+}
+
+function createOverlay() {
+    if (!document.getElementById('sidebar-overlay')) {
+        const ov = document.createElement('div');
+        ov.id = 'sidebar-overlay';
+        ov.className = 'sidebar-overlay';
+        ov.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            removeOverlay();
+        });
+        document.body.appendChild(ov);
+    }
+}
+
+function removeOverlay() {
+    const ov = document.getElementById('sidebar-overlay');
+    if (ov) ov.remove();
 }
 
 // Abre e fecha o menu lateral
@@ -23,67 +41,52 @@ if (btnCollapse) {
     });
 }
 
-// Fechar sidebar quando clicar fora dela em mobile
-document.addEventListener('click', (e) => {
-    if (isMobile() && sidebar.classList.contains('active')) {
-        // Se clicou fora da sidebar e do botão, fecha
-        if (!sidebar.contains(e.target) && !btnCollapse.contains(e.target)) {
-            sidebar.classList.remove('active');
-        }
+// Fechar overlay e sidebar ao redimensionar para desktop
+window.addEventListener('resize', () => {
+    if (!isMobile()) {
+        sidebar.classList.remove('active');
+        removeOverlay();
     }
 });
 
-// Função para exibir o nome do usuário logado
-function exibirNomeUsuario() {
-    // Pegar o nome e foto armazenados no localStorage após o login
+function exibirPerfil() {
     const userName = localStorage.getItem('userName');
-    const userPhoto = localStorage.getItem('userPhoto');
-    
-    // Atualizar header principal com saudação
+    const userId = localStorage.getItem('userId');
+    let userPhoto = null;
+    if (userId && userId !== 'undefined' && userId !== 'null') {
+        userPhoto = localStorage.getItem(`userPhoto_${userId}`) || null;
+    } else {
+        userPhoto = localStorage.getItem('userPhoto') || null; // fallback
+    }
+
+    // atualizar saudação no conteúdo principal
     if (nomeUsuarioElement) {
-        if (userName) {
-            nomeUsuarioElement.textContent = `Bem-vindo, ${userName}! O que iremos aprender hoje?`;
-        } else {
-            nomeUsuarioElement.textContent = 'Bem-vindo! Faça login para continuar.';
-        }
+        nomeUsuarioElement.textContent = userName ? `Bem-vindo(a), ${userName}! O que iremos aprender hoje?` : 'Bem-vindo! Faça login para continuar.';
     }
-    
-    // Atualizar nome na sidebar
-    if (userNameSidebar) {
-        if (userName) {
-            userNameSidebar.textContent = userName;
-        } else {
-            userNameSidebar.textContent = 'Usuário';
-        }
-    }
-    
-    // Atualizar inicial do nome na sidebar com foto se disponível
+
+    // atualizar sidebar
+    if (userNameSidebar) userNameSidebar.textContent = userName || 'Usuário';
     if (userInitial) {
         if (userPhoto) {
-            // Se temos foto, usar como background-image
-            userInitial.style.backgroundImage = `url('${userPhoto}')`;
+            // usar a foto como background do quadrado
+            userInitial.style.backgroundImage = `url(${userPhoto})`;
             userInitial.style.backgroundSize = 'cover';
             userInitial.style.backgroundPosition = 'center';
-            userInitial.textContent = ''; // limpar texto
-        } else if (userName) {
-            // Se temos nome mas sem foto, usar inicial
-            const inicial = userName.charAt(0).toUpperCase();
-            userInitial.textContent = inicial;
-            userInitial.style.backgroundImage = 'none';
+            userInitial.textContent = '';
+        } else {
+            // remover background se houver
+            userInitial.style.backgroundImage = '';
+            userInitial.textContent = userName ? userName.charAt(0).toUpperCase() : 'U';
         }
+    }
+
+    // adicionar clique no header da sidebar (apenas uma vez)
+    if (sidebarHeader && !sidebarHeader.dataset.clickBound) {
+        sidebarHeader.addEventListener('click', () => { window.location.href = '../config/config.html'; });
+        sidebarHeader.dataset.clickBound = '1';
     }
 }
 
-// Remover classes de mobile/desktop ao redimensionar
-window.addEventListener('resize', () => {
-    if (!isMobile()) {
-        // Se redimensionou para desktop, remove a classe 'active'
-        sidebar.classList.remove('active');
-    }
-});
-
-// Chamar a função quando a página carregar
-document.addEventListener('DOMContentLoaded', exibirNomeUsuario);
-
-// Atualizar nome de usuário quando houver mudanças no localStorage
-window.addEventListener('storage', exibirNomeUsuario);
+// Chamar ao carregar e quando o localStorage mudar
+document.addEventListener('DOMContentLoaded', exibirPerfil);
+window.addEventListener('storage', exibirPerfil);

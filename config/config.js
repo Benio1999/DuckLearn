@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const feedbackPassword = document.getElementById('password-feedback');
 
     const logoutButton = document.querySelector('.logout-button');
+    const returnButton = document.querySelector('.return-button');
 
     //FEEDBACK
     function exibirFeedback(elemento, mensagem, tipo) {
@@ -33,12 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => { elemento.style.display = 'none'; }, 5000);
     }
 
-    // CARREGA DADOS LOCAIS DO USUÁRIO
+    // CARREGA DADOS LOCAIS DO USUÁRIO (foto salva por usuário: 'userPhoto_<userId>')
     function carregarDadosUsuario() {
         const name = localStorage.getItem('userName');
-        const photo = localStorage.getItem('userPhoto');
         const email = localStorage.getItem('userEmail');
-        
+        const userId = localStorage.getItem('userId');
 
         if (userNameInput && name) userNameInput.value = name;
         if (userEmailInput && email) {
@@ -47,6 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (currentPhoto) {
+            let photo = null;
+            if (userId && userId !== 'undefined' && userId !== 'null') {
+                photo = localStorage.getItem(`userPhoto_${userId}`);
+            }
             if (photo) currentPhoto.src = photo;
             else currentPhoto.src = 'avatar.jpg';
         }
@@ -61,7 +65,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     currentPhoto.src = e.target.result;
-                    localStorage.setItem('userPhoto', e.target.result);
+                    const userId = localStorage.getItem('userId');
+                    if (userId && userId !== 'undefined' && userId !== 'null') {
+                        localStorage.setItem(`userPhoto_${userId}`, e.target.result);
+                    } else {
+                        // fallback: store under generic key (shouldn't happen if login sets userId)
+                        localStorage.setItem('userPhoto', e.target.result);
+                    }
                 };
                 reader.readAsDataURL(e.target.files[0]);
             }
@@ -75,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (feedbackProfile) feedbackProfile.style.display = 'none';
 
             const name = userNameInput ? userNameInput.value.trim() : '';
-            const email = userEmailInput === localStorage.getItem('userEmail');
+            const email = userEmailInput ? userEmailInput.value.trim() : '';
 
             if (!name) {
                 exibirFeedback(feedbackProfile, 'O nome não pode estar vazio.', 'error');
@@ -158,13 +168,22 @@ document.addEventListener('DOMContentLoaded', function() {
     if (logoutButton) {
         logoutButton.addEventListener('click', function() {
             if (confirm('Tem certeza de que deseja sair da sua conta?')) {
+                const userId = localStorage.getItem('userId');
                 localStorage.removeItem('userName');
-                localStorage.removeItem('userPhoto');
+                if (userId && userId !== 'undefined' && userId !== 'null') {
+                    localStorage.removeItem(`userPhoto_${userId}`);
+                } else {
+                    localStorage.removeItem('userPhoto');
+                }
                 localStorage.removeItem('userEmail');
                 localStorage.removeItem('userId');
                 window.location.href = '../principal_page/principal.html';
             }
         });
     }
-
+    if (returnButton){
+        returnButton.addEventListener('click', function(){
+            window.location.href = '../principal_page/principal.html';
+        })
+    }
 });
